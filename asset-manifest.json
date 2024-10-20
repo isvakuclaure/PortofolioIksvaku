@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/isvakuclaure/PortofolioIksvaku.git/static/css/main.f855e6bc.css",
-    "main.js": "/isvakuclaure/PortofolioIksvaku.git/static/js/main.f1c0b04d.js",
-    "static/js/453.4f69000a.chunk.js": "/isvakuclaure/PortofolioIksvaku.git/static/js/453.4f69000a.chunk.js",
-    "static/media/logo.svg": "/isvakuclaure/PortofolioIksvaku.git/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/isvakuclaure/PortofolioIksvaku.git/index.html",
-    "main.f855e6bc.css.map": "/isvakuclaure/PortofolioIksvaku.git/static/css/main.f855e6bc.css.map",
-    "main.f1c0b04d.js.map": "/isvakuclaure/PortofolioIksvaku.git/static/js/main.f1c0b04d.js.map",
-    "453.4f69000a.chunk.js.map": "/isvakuclaure/PortofolioIksvaku.git/static/js/453.4f69000a.chunk.js.map"
+    "main.css": "/PortofolioIksvaku/static/css/main.f855e6bc.css",
+    "main.js": "/PortofolioIksvaku/static/js/main.3d8666e0.js",
+    "static/js/453.4f69000a.chunk.js": "/PortofolioIksvaku/static/js/453.4f69000a.chunk.js",
+    "static/media/logo.svg": "/PortofolioIksvaku/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/PortofolioIksvaku/index.html",
+    "main.f855e6bc.css.map": "/PortofolioIksvaku/static/css/main.f855e6bc.css.map",
+    "main.3d8666e0.js.map": "/PortofolioIksvaku/static/js/main.3d8666e0.js.map",
+    "453.4f69000a.chunk.js.map": "/PortofolioIksvaku/static/js/453.4f69000a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.f1c0b04d.js"
+    "static/js/main.3d8666e0.js"
   ]
 }
