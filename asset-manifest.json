@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/PortofolioIksvaku/static/css/main.68e9db55.css",
-    "main.js": "/PortofolioIksvaku/static/js/main.e5fc2b54.js",
+    "main.js": "/PortofolioIksvaku/static/js/main.d6ac95cc.js",
     "static/js/453.4f69000a.chunk.js": "/PortofolioIksvaku/static/js/453.4f69000a.chunk.js",
     "static/media/BlastHeroes_Keyart_Horizontal_wGameplay_2.png": "/PortofolioIksvaku/static/media/BlastHeroes_Keyart_Horizontal_wGameplay_2.1f2070c627fcf429c0af.png",
     "index.html": "/PortofolioIksvaku/index.html",
     "main.68e9db55.css.map": "/PortofolioIksvaku/static/css/main.68e9db55.css.map",
-    "main.e5fc2b54.js.map": "/PortofolioIksvaku/static/js/main.e5fc2b54.js.map",
+    "main.d6ac95cc.js.map": "/PortofolioIksvaku/static/js/main.d6ac95cc.js.map",
     "453.4f69000a.chunk.js.map": "/PortofolioIksvaku/static/js/453.4f69000a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.68e9db55.css",
-    "static/js/main.e5fc2b54.js"
+    "static/js/main.d6ac95cc.js"
   ]
 }
