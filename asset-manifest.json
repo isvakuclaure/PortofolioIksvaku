@@ -1,16 +1,43 @@
 {
   "files": {
-    "main.css": "/PortofolioIksvaku/static/css/main.68e9db55.css",
-    "main.js": "/PortofolioIksvaku/static/js/main.d6ac95cc.js",
-    "static/js/453.4f69000a.chunk.js": "/PortofolioIksvaku/static/js/453.4f69000a.chunk.js",
-    "static/media/BlastHeroes_Keyart_Horizontal_wGameplay_2.png": "/PortofolioIksvaku/static/media/BlastHeroes_Keyart_Horizontal_wGameplay_2.1f2070c627fcf429c0af.png",
-    "index.html": "/PortofolioIksvaku/index.html",
-    "main.68e9db55.css.map": "/PortofolioIksvaku/static/css/main.68e9db55.css.map",
-    "main.d6ac95cc.js.map": "/PortofolioIksvaku/static/js/main.d6ac95cc.js.map",
-    "453.4f69000a.chunk.js.map": "/PortofolioIksvaku/static/js/453.4f69000a.chunk.js.map"
+    "main.css": "/PortofolioIksvaku/home/static/css/main.163cc318.css",
+    "main.js": "/PortofolioIksvaku/home/static/js/main.9d9d46f4.js",
+    "static/js/453.4f69000a.chunk.js": "/PortofolioIksvaku/home/static/js/453.4f69000a.chunk.js",
+    "static/media/Salesforce.mp4": "/PortofolioIksvaku/home/static/media/Salesforce.99816220b5ff4cf3b9dc.mp4",
+    "static/media/projectLife.mp4": "/PortofolioIksvaku/home/static/media/projectLife.90988d72b17ea8b4e227.mp4",
+    "static/media/interviewDualist.mp4": "/PortofolioIksvaku/home/static/media/interviewDualist.56e0978cb1481e0c1c9a.mp4",
+    "static/media/blastHeroes.mp4": "/PortofolioIksvaku/home/static/media/blastHeroes.8c8cd1a205e4efe6d6da.mp4",
+    "static/media/vttraining.mp4": "/PortofolioIksvaku/home/static/media/vttraining.f3f9a20336cea1269e28.mp4",
+    "static/media/marbac.mp4": "/PortofolioIksvaku/home/static/media/marbac.7e0190b4c801abb16553.mp4",
+    "static/media/krystaline technology front.png": "/PortofolioIksvaku/home/static/media/krystaline technology front.9ca9554807abeff014d0.png",
+    "static/media/baldursGameplay.jpg": "/PortofolioIksvaku/home/static/media/baldursGameplay.28db29c2c6b36ddd1853.jpg",
+    "static/media/xcomGameplay.jpg": "/PortofolioIksvaku/home/static/media/xcomGameplay.2b56e1237b1b79b6d11e.jpg",
+    "static/media/crossfit4.jpg": "/PortofolioIksvaku/home/static/media/crossfit4.8729791e64aee1409c1d.jpg",
+    "static/media/baldursgatesCover.jpg": "/PortofolioIksvaku/home/static/media/baldursgatesCover.694ebdc5e1cf622b21c4.jpg",
+    "static/media/crossfit2.jpg": "/PortofolioIksvaku/home/static/media/crossfit2.e5011ba45db2c92f4443.jpg",
+    "static/media/trofeosajedrez.jpg": "/PortofolioIksvaku/home/static/media/trofeosajedrez.b0646553d575ed06d548.jpg",
+    "static/media/crossfit1.jpg": "/PortofolioIksvaku/home/static/media/crossfit1.e3c518cd8b4b536f091d.jpg",
+    "static/media/wordpressProjects.jpg": "/PortofolioIksvaku/home/static/media/wordpressProjects.bda7af5be61f9f2b8bdd.jpg",
+    "static/media/reactProjects.jpg": "/PortofolioIksvaku/home/static/media/reactProjects.0a0807307ef36626d396.jpg",
+    "static/media/playcanvasprojects.jpg": "/PortofolioIksvaku/home/static/media/playcanvasprojects.a53ddecbb6c66ddf86d7.jpg",
+    "static/media/salesforceProjects.jpg": "/PortofolioIksvaku/home/static/media/salesforceProjects.3698565cb252a6ff4286.jpg",
+    "static/media/crossfit.jpg": "/PortofolioIksvaku/home/static/media/crossfit.12720e1262064e5a6e1b.jpg",
+    "static/media/Inscryption-Gameplay-1024x576.jpg": "/PortofolioIksvaku/home/static/media/Inscryption-Gameplay-1024x576.478d9a62970c3af4f20e.jpg",
+    "static/media/foto-movil.jpg": "/PortofolioIksvaku/home/static/media/foto-movil.d2712267f4ce87ea0623.jpg",
+    "static/media/foto.jpg": "/PortofolioIksvaku/home/static/media/foto.b24920872bba30e46c3f.jpg",
+    "static/media/Inscryption_Cover_Art.jpg": "/PortofolioIksvaku/home/static/media/Inscryption_Cover_Art.6f47f52dfaa43b706aab.jpg",
+    "static/media/jam11.jpg": "/PortofolioIksvaku/home/static/media/jam11.db61c034622f556d53b8.jpg",
+    "static/media/jam0.5.jpg": "/PortofolioIksvaku/home/static/media/jam0.5.048dc14be7136e37f8af.jpg",
+    "static/media/XCOM_2_cover_art.jpg": "/PortofolioIksvaku/home/static/media/XCOM_2_cover_art.622b8fc8e1a2f7e7317b.jpg",
+    "static/media/jam1.jpg": "/PortofolioIksvaku/home/static/media/jam1.587af7a055131ae2abd8.jpg",
+    "static/media/jam0.jpg": "/PortofolioIksvaku/home/static/media/jam0.df80c7b77c69a8be90ac.jpg",
+    "index.html": "/PortofolioIksvaku/home/index.html",
+    "main.163cc318.css.map": "/PortofolioIksvaku/home/static/css/main.163cc318.css.map",
+    "main.9d9d46f4.js.map": "/PortofolioIksvaku/home/static/js/main.9d9d46f4.js.map",
+    "453.4f69000a.chunk.js.map": "/PortofolioIksvaku/home/static/js/453.4f69000a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.68e9db55.css",
-    "static/js/main.d6ac95cc.js"
+    "static/css/main.163cc318.css",
+    "static/js/main.9d9d46f4.js"
   ]
 }
