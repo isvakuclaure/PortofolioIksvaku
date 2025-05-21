@@ -1,6 +1,5 @@
 'use client';
 import Image from "next/image";
-import CustomImage from "@/components/CustomImage";
 import Link from "next/link";
 
 export default function Contacto() {
@@ -36,7 +35,7 @@ export default function Contacto() {
             <div className="p-8">
               <div className="flex flex-col items-center text-center mb-8">
                 <div className="w-24 h-24 relative mb-4">
-                  <CustomImage
+                  <Image
                     src="/portada.jpg"
                     alt="Foto de perfil"
                     fill
