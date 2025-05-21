@@ -15,14 +15,14 @@ export default function Home() {
             <div
               className="absolute inset-0 bg-slate-400"
               style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.15'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.15'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
               }}
             ></div>
 
             <div className="relative h-full w-full flex items-center justify-center">
               <div className="relative w-[90%] h-[90%] shadow-md rounded-sm overflow-hidden">
                 <Image
-                  src="portfolioiksvaku/portada.jpg"
+                  src="/PortofolioIksvaku/portada.jpg"
                   alt="Iksvaku portrait"
                   fill
                   className="object-contain object-center"
@@ -160,13 +160,7 @@ export default function Home() {
                 </div>
                 <div className="md:w-1/2 md:pl-12 mb-6 md:mb-0 order-1 md:order-2">
                   <div className="bg-slate-200 rounded-lg overflow-hidden shadow-md aspect-video relative">
-                    <Image
-                      src="public/liftel.jpg"
-                      alt="Liftel"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
+                                        <Image                      src="/PortofolioIksvaku/liftel.jpg"                      alt="Liftel"                      fill                      className="object-cover"                      sizes="(max-width: 768px) 100vw, 50vw"                    />
                   </div>
                   <div className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-blue-500 rounded-full border-4 border-white z-10"></div>
                 </div>
@@ -179,7 +173,7 @@ export default function Home() {
                 <div className="md:w-1/2 md:pr-12 mb-6 md:mb-0">
                   <div className="bg-slate-200 rounded-lg overflow-hidden shadow-md aspect-video relative">
                     <Image
-                      src="portfolioiksvaku/public/salesforceProjects.3698565cb252a6ff4286.jpg"
+                      src="/PortofolioIksvaku/salesforceProjects.3698565cb252a6ff4286.jpg"
                       alt="Salesforce Projects"
                       fill
                       className="object-cover"
@@ -262,7 +256,7 @@ export default function Home() {
                 <div className="md:w-1/2 md:pl-12 mb-6 md:mb-0 order-1 md:order-2">
                   <div className="bg-slate-200 rounded-lg overflow-hidden shadow-md aspect-video relative">
                     <Image
-                      src="/reactprojects.jpg"
+                      src="/PortofolioIksvaku/reactprojects.jpg"
                       alt="Solera Projects"
                       fill
                       className="object-cover"
@@ -280,7 +274,7 @@ export default function Home() {
                 <div className="md:w-1/2 md:pr-12 mb-6 md:mb-0">
                   <div className="bg-slate-200 rounded-lg overflow-hidden shadow-md aspect-video relative">
                     <Image
-                      src="/playcanvas.jpg"
+                      src="/PortofolioIksvaku/playcanvas.jpg"
                       alt="Blast Heroes"
                       fill
                       className="object-cover"

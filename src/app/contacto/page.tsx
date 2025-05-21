@@ -35,7 +35,7 @@ export default function Contacto() {
               <div className="flex flex-col items-center text-center mb-8">
                 <div className="w-24 h-24 relative mb-4">
                   <Image
-                    src="/portada.jpg"
+                    src="/PortofolioIksvaku/portada.jpg"
                     alt="Foto de perfil"
                     fill
                     className="rounded-full object-cover"

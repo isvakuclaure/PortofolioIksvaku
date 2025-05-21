@@ -45,10 +45,10 @@ export default function Proyectos() {
                 <div className="relative h-48 md:h-64 bg-slate-200 overflow-hidden">
                   {" "}
                   <video
-                    src="/vttraining.mp4"
+                    src="/PortofolioIksvaku/vttraining.mp4"
                     className="object-cover w-full h-full"
                     controls
-                    poster="/wordpress.jpg"
+                    poster="/PortofolioIksvaku/wordpress.jpg" 
                   />{" "}
                 </div>
                 <div className="p-6">
@@ -108,10 +108,10 @@ export default function Proyectos() {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
                 <div className="relative h-48 md:h-64 bg-slate-200">
                   <video
-                    src="/marbac.mp4"
+                    src="/PortofolioIksvaku/marbac.mp4"
                     className="object-cover w-full h-full"
                     controls
-                    poster="/wordpress.jpg"
+                    poster="/PortofolioIksvaku/wordpress.jpg"
                   />
                 </div>
                 <div className="p-6">
@@ -186,10 +186,10 @@ export default function Proyectos() {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
                 <div className="relative h-48 md:h-64 bg-slate-200">
                   <video
-                    src="/blastheroes.mp4"
+                    src="/PortofolioIksvaku/blastheroes.mp4"
                     className="object-contain w-full h-full"
                     controls
-                    poster="/playcanvas.jpg"
+                    poster="/PortofolioIksvaku/playcanvas.jpg"
                     style={{ maxHeight: "100%" }}
                   />
                 </div>
@@ -226,10 +226,10 @@ export default function Proyectos() {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
                 <div className="relative h-48 md:h-64 bg-slate-200">
                   <video
-                    src="/projectLife.mp4"
+                    src="/PortofolioIksvaku/projectLife.mp4"
                     className="object-cover w-full h-full"
                     controls
-                    poster="/playcanvas.jpg"
+                    poster="/PortofolioIksvaku/playcanvas.jpg"  
                   />
                 </div>
                 <div className="p-6">
@@ -280,10 +280,10 @@ export default function Proyectos() {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
                 <div className="relative h-48 lg:h-72 bg-slate-200">
                   <video
-                    src="/sandscripter.mp4"
+                    src="/PortofolioIksvaku/sandscripter.mp4"
                     className="object-cover w-full h-full"
                     controls
-                    poster="/reactprojects.jpg"
+                    poster="/PortofolioIksvaku/reactprojects.jpg" 
                   />
                 </div>
                 <div className="p-6">
@@ -360,7 +360,7 @@ export default function Proyectos() {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
                 <div className="relative h-48 lg:h-72 bg-slate-200">
                   <video
-                    src="/interviewDualist.mp4"
+                    src="/PortofolioIksvaku/interviewDualist.mp4"
                     className="object-cover w-full h-full"
                     controls
                     poster="/.jpg"
