@@ -1,5 +1,6 @@
 'use client';
 import Image from "next/image";
+import CustomImage from "@/components/CustomImage";
 import Link from "next/link";
 import { useState } from "react";
 

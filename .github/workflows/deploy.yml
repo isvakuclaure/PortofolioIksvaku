@@ -31,6 +31,13 @@ jobs:
         run: npm ci
       - name: Build with Next.js
         run: npm run build
+      - name: Create .nojekyll file
+        run: touch out/.nojekyll
+      - name: Fix image paths
+        run: |
+          # Fix image paths if needed
+          find out -type f -name "*.html" -exec sed -i 's|src="/|src="/PortofolioIksvaku/|g' {} \;
+          find out -type f -name "*.html" -exec sed -i 's|href="/|href="/PortofolioIksvaku/|g' {} \;
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

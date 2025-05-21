@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redireccionando...</title>
+  <script>
+    // Solución para GitHub Pages - redirige a la ruta correcta
+    const segments = location.pathname.split('/');
+    const repo = '/PortofolioIksvaku';
+    // Si estamos en la ruta base del repositorio o en alguna ruta desconocida
+    if (segments.length > 2) {
+      const path = segments.slice(2).join('/');
+      window.location.href = `${repo}/${path}`;
+    } else {
+      window.location.href = repo;
+    }
+  </script>
+</head>
+<body>
+  <p>Redirigiendo al sitio principal...</p>
+</body>
+</html> 
