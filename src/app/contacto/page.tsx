@@ -1,7 +1,6 @@
 'use client';
-import Image from "next/image";
 import Link from "next/link";
-
+import Image from "next/image";
 export default function Contacto() {
   // URL de LinkedIn para mensaje directo con texto predeterminado
   const linkedInProfile = "Iksvaku";

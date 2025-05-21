@@ -31,13 +31,6 @@ jobs:
         run: npm ci
       - name: Build with Next.js
         run: npm run build
-      - name: Create .nojekyll file
-        run: touch out/.nojekyll
-      - name: Fix all paths in files
-        run: |
-          find out -type f -name "*.html" -o -name "*.js" -o -name "*.css" | xargs -I{} sed -i 's|/_next/|/PortofolioIksvaku/_next/|g' {}
-          find out -type f -name "*.html" | xargs -I{} sed -i 's|href="/|href="/PortofolioIksvaku/|g' {}
-          find out -type f -name "*.html" | xargs -I{} sed -i 's|src="/|src="/PortofolioIksvaku/|g' {}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
