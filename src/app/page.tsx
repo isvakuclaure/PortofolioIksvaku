@@ -22,7 +22,7 @@ export default function Home() {
             <div className="relative h-full w-full flex items-center justify-center">
               <div className="relative w-[90%] h-[90%] shadow-md rounded-sm overflow-hidden">
                 <Image
-                  src="/portada.jpg"
+                  src="portfolioiksvaku/portada.jpg"
                   alt="Iksvaku portrait"
                   fill
                   className="object-contain object-center"
@@ -161,7 +161,7 @@ export default function Home() {
                 <div className="md:w-1/2 md:pl-12 mb-6 md:mb-0 order-1 md:order-2">
                   <div className="bg-slate-200 rounded-lg overflow-hidden shadow-md aspect-video relative">
                     <Image
-                      src="/liftel.jpg"
+                      src="public/liftel.jpg"
                       alt="Liftel"
                       fill
                       className="object-cover"
@@ -179,7 +179,7 @@ export default function Home() {
                 <div className="md:w-1/2 md:pr-12 mb-6 md:mb-0">
                   <div className="bg-slate-200 rounded-lg overflow-hidden shadow-md aspect-video relative">
                     <Image
-                      src="/salesforceProjects.3698565cb252a6ff4286.jpg"
+                      src="portfolioiksvaku/public/salesforceProjects.3698565cb252a6ff4286.jpg"
                       alt="Salesforce Projects"
                       fill
                       className="object-cover"
