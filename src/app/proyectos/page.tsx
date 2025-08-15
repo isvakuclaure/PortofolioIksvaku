@@ -275,7 +275,7 @@ export default function Proyectos() {
               </svg>
               NextJS
             </h2>
-            <div className="grid grid-cols-1 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Proyecto Sandscripter */}
               <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
                 <div className="relative h-48 lg:h-72 bg-slate-200">
@@ -321,6 +321,68 @@ export default function Proyectos() {
                       className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
                     >
                       Ver en Github
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 ml-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Proyecto Jona Nutrición */}
+              <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
+                <div className="relative h-48 lg:h-72 bg-slate-200">
+                  <video
+                    src="/PortofolioIksvaku/jonanutricion.mp4"
+                    className="object-cover w-full h-full"
+                    controls
+                    poster="/PortofolioIksvaku/reactprojects.jpg"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    Jona Nutrición
+                  </h3>
+                  <p className="text-slate-600 mb-4">
+                    Desarrollé la web profesional para Jona Pérez, un dietista-nutricionista
+                    especializado en nutrición deportiva con sede en Sant Vicent del Raspeig, Alacant.
+                    El sitio presenta sus servicios de planes nutricionales personalizados, consultas
+                    y seguimiento para diferentes objetivos como pérdida de peso, definición muscular
+                    y bienestar general.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
+                      NextJS
+                    </span>
+                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
+                      Responsive
+                    </span>
+                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
+                      Diseño Web
+                    </span>
+                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
+                      SEO
+                    </span>
+                  </div>
+                  <div className="flex justify-end">
+                    <a
+                      href="https://www.jonanutricion.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+                    >
+                      Visitar sitio
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-4 w-4 ml-1"
