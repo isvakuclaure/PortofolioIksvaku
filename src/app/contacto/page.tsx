@@ -36,7 +36,7 @@ export default function Contacto() {
                 <div className="w-24 h-24 relative mb-4">
                   <Image
                     src="/PortofolioIksvaku/portada.jpg"
-                    alt="Foto de perfil"
+                    alt="Iksvaku Claure Manchón - Foto de perfil"
                     fill
                     className="rounded-full object-cover"
                   />

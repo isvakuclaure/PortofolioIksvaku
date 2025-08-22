@@ -73,9 +73,9 @@ const ImageGallery = ({ images }: { images: ImageItem[] }) => {
 export default function Aficiones() {
   // Datos para las galerías
   const jamsImages: ImageItem[] = [
-    { src: "/PortofolioIksvaku/jam0.jpg", alt: "Jam 1" },
-    { src: "/PortofolioIksvaku/jam1.jpg", alt: "Jam 2" },
-    { src: "/PortofolioIksvaku/jam2.jpg", alt: "Jam 3" }
+    { src: "/PortofolioIksvaku/jam0.jpg", alt: "Game jam de programación - imagen 1" },
+    { src: "/PortofolioIksvaku/jam1.jpg", alt: "Game jam de programación - imagen 2" },
+    { src: "/PortofolioIksvaku/jam2.jpg", alt: "Game jam de programación - imagen 3" }
   ];
 
   const videojuegosImages: ImageItem[] = [
@@ -88,10 +88,10 @@ export default function Aficiones() {
   ];
 
   const crossfitImages: ImageItem[] = [
-    { src: "/PortofolioIksvaku/crossfit.jpg", alt: "Crossfit uno" },
-    { src: "/PortofolioIksvaku/crossfit1.jpg", alt: "Crossfit dos" },
-    { src: "/PortofolioIksvaku/crossfit2.jpg", alt: "Crossfit tres" },
-    { src: "/PortofolioIksvaku/crossfit4.jpg", alt: "Crossfit cuatro" }
+    { src: "/PortofolioIksvaku/crossfit.jpg", alt: "Entrenamiento de CrossFit - imagen 1" },
+    { src: "/PortofolioIksvaku/crossfit1.jpg", alt: "Entrenamiento de CrossFit - imagen 2" },
+    { src: "/PortofolioIksvaku/crossfit2.jpg", alt: "Entrenamiento de CrossFit - imagen 3" },
+    { src: "/PortofolioIksvaku/crossfit4.jpg", alt: "Entrenamiento de CrossFit - imagen 4" }
   ];
 
   const ajedrezImages: ImageItem[] = [

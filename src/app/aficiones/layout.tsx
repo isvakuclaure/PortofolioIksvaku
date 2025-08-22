@@ -1,11 +1,30 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Proyectos | Portfolio de Iksvaku",
-  description: "Proyectos desarrollados por Iksvaku en diferentes tecnologías",
+  title: "Aficiones | Portfolio de Iksvaku",
+  description:
+    "Aficiones de Iksvaku Claure Manchón: jams, videojuegos, crossfit y ajedrez.",
+  alternates: { canonical: "/PortofolioIksvaku/aficiones/" },
+  keywords: [
+    "portfolio iksvaku",
+    "Iksvaku Claure Manchón",
+    "aficiones",
+    "jams",
+    "videojuegos",
+    "crossfit",
+    "ajedrez",
+  ],
+  openGraph: {
+    type: "website",
+    title: "Aficiones | Portfolio de Iksvaku",
+    description:
+      "Aficiones de Iksvaku Claure Manchón: jams, videojuegos, crossfit y ajedrez.",
+    url: "/PortofolioIksvaku/aficiones/",
+    siteName: "Portfolio de Iksvaku",
+  },
 };
 
-export default function ProyectosLayout({
+export default function AficionesLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

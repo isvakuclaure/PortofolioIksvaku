@@ -13,9 +13,49 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
+  : undefined;
+
 export const metadata: Metadata = {
-  title: "Portfolio de Iksvaku",
-  description: "Portfolio personal de Iksvaku mostrando proyectos y habilidades",
+  metadataBase: siteUrl,
+  title: {
+    default: "Portfolio de Iksvaku | Iksvaku Claure Manchón",
+    template: "%s | Portfolio de Iksvaku",
+  },
+  description:
+    "Portfolio de Iksvaku Claure Manchón: proyectos y habilidades en desarrollo frontend con Next.js, Tailwind CSS y Salesforce.",
+  keywords: [
+    "portfolio iksvaku",
+    "Iksvaku Claure Manchón",
+    "desarrollador frontend",
+    "Next.js",
+    "Tailwind CSS",
+    "Salesforce",
+  ],
+  authors: [{ name: "Iksvaku Claure Manchón" }],
+  alternates: {
+    canonical: "/PortofolioIksvaku/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    title: "Portfolio de Iksvaku",
+    description:
+      "Portfolio de Iksvaku Claure Manchón: proyectos y habilidades en desarrollo frontend con Next.js, Tailwind CSS y Salesforce.",
+    url: "/PortofolioIksvaku/",
+    siteName: "Portfolio de Iksvaku",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfolio de Iksvaku",
+    description:
+      "Portfolio de Iksvaku Claure Manchón: proyectos y habilidades en desarrollo frontend con Next.js, Tailwind CSS y Salesforce.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
