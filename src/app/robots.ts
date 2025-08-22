@@ -1,21 +1,21 @@
+export const dynamic = 'force-static';
+
 import type { MetadataRoute } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+// Base del sitio: usa la variable de entorno si está definida, de lo contrario usa GitHub Pages
+const siteUrlBase = (process.env.NEXT_PUBLIC_SITE_URL || "https://isvakuclaure.github.io").replace(/\/$/, "");
 const basePath = "/PortofolioIksvaku";
 
 export default function robots(): MetadataRoute.Robots {
-  const sitemapPath = siteUrl
-    ? `${siteUrl}${basePath}/sitemap.xml`
-    : `${basePath}/sitemap.xml`;
+  const sitemapUrl = `${siteUrlBase}${basePath}/sitemap.xml`;
 
   return {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: ["/api/"],
+        allow: [`${basePath}/`],
       },
     ],
-    sitemap: sitemapPath,
+    sitemap: sitemapUrl,
   };
 }

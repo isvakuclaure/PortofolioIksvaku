@@ -1,19 +1,23 @@
+export const dynamic = 'force-static';
+export const revalidate = 86400; // 24 horas
+
 import type { MetadataRoute } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+const siteUrlBase = (process.env.NEXT_PUBLIC_SITE_URL || "https://isvakuclaure.github.io").replace(/\/$/, "");
 const basePath = "/PortofolioIksvaku";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["/", "/proyectos/", "/aficiones/", "/contacto/"];
+  // Definimos slugs sin la barra inicial para evitar // en el join
+  const slugs = ["", "proyectos/", "aficiones/", "contacto/"];
 
-  return routes.map((route) => {
-    const path = `${basePath}${route}`;
-    const url = siteUrl ? `${siteUrl}${path}` : path;
+  return slugs.map((slug) => {
+    const path = `${basePath}/${slug}`; // siempre exactamente una barra entre basePath y slug
+    const url = `${siteUrlBase}${path}`; // siempre absoluto para cumplir el estándar del sitemap
     return {
       url,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: route === "/" ? 1 : 0.7,
+      priority: slug === "" ? 1 : 0.7,
     } as const;
   });
 }
