@@ -3,165 +3,355 @@ import Link from "next/link";
 
 export default function Proyectos() {
   return (
-    <main className="min-h-screen">
-      {/* Encabezado de la página */}
-      <div className="bg-slate-900 py-12">
+    <main className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900">
+      {/* Header */}
+      <div className="bg-slate-900/50 border-b border-slate-800/50 py-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-              <span className="relative inline-block">
-                Mis Proyectos
-                <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500"></span>
-              </span>
+          <div className="text-center">          
+            <h1 className="text-2xl sm:text-3xl font-bold text-white mt-2 mb-3">
+              Mis Proyectos
             </h1>
-            <p className="text-slate-300 max-w-2xl mx-auto">
+            <p className="text-slate-400 text-sm max-w-xl mx-auto">
               Explora mi portafolio de proyectos desarrollados con diferentes
-              tecnologías y para diversos clientes
+              tecnologías y para diversos clientes.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Categoría: WordPress */}
-      <div className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-blue-500 mr-3"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 19.5c-5.247 0-9.5-4.253-9.5-9.5S6.753 2.5 12 2.5s9.5 4.253 9.5 9.5-4.253 9.5-9.5 9.5z" />
-                <path d="M3.5 12a8.5 8.5 0 1 1 17 0 8.5 8.5 0 0 1-17 0zm8.5 6.5a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13z" />
-              </svg>
-              WordPress
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Proyecto VT-TRAINING */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
-                {" "}
-                <div className="relative h-48 md:h-64 bg-slate-200 overflow-hidden">
-                  {" "}
-                  <video
-                    src="/PortofolioIksvaku/vttraining.mp4"
-                    className="object-cover w-full h-full"
-                    controls
-                    poster="/PortofolioIksvaku/wordpress.jpg" 
-                  />{" "}
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
-                    VT-TRAINING
-                  </h3>
-                  <p className="text-slate-600 mb-4">
-                    Desarrollé la web profesional VT-TRAINING, una web
-                    desarrollada en WordPress enfocada al HYROX, de hecho son
-                    subcampeones del mundo del HYROX sub 29. Implementé
-                    interfaz, instalación de wordpress en servidor, instalación
-                    del certificado SSL, instalación de plugins y asesoramiento
-                    al cliente.
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      WordPress
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      Responsive
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      Personalización
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      SSL
-                    </span>
-                  </div>
-                  <div className="flex justify-end">
-                    <a
-                      href="https://vttraining.es/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                    >
-                      Visitar sitio
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+      {/* Contenido principal */}
+      <div className="py-12 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Elementos decorativos de fondo */}
+          <div className="absolute inset-0 overflow-hidden opacity-5 pointer-events-none">
+            <div className="absolute right-0 top-20 w-96 h-96 bg-blue-500 rounded-full filter blur-[150px]"></div>
+            <div className="absolute left-0 bottom-20 w-96 h-96 bg-indigo-500 rounded-full filter blur-[150px]"></div>
+          </div>
+
+          {/* Categoría: NextJS */}
+          <div className="mb-12 relative group">
+            <div className="bg-slate-800/60 backdrop-blur-sm p-6 rounded-xl shadow-xl border-l-4 border-green-500 hover:shadow-green-500/10 transition-all duration-300 relative z-10">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-green-500 mr-3"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 01-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 00-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.25 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158-.02-.013-.9-1.193-1.955-2.62l-1.919-2.592-2.404-3.558a338.739 338.739 0 00-2.422-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 01-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.438.438 0 01-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 01.174-.143c.096-.047.134-.051.54-.051.478 0 .558.018.682.154.035.038 1.337 1.999 2.895 4.361a10760.433 10760.433 0 004.735 7.17l1.9 2.879.096-.063a12.317 12.317 0 002.466-2.163 11.944 11.944 0 002.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747C19.746 4.347 16.538.561 12.189-.842A11.777 11.777 0 0011.572 0z" />
+                </svg>
+                NextJS
+              </h2>
+              <div className="space-y-8">
+                {/* Proyecto Liftplay */}
+                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-green-500/30 transition-all duration-300">
+                  <div className="grid md:grid-cols-2 gap-6 items-center">
+                    <div className="order-2 md:order-1">
+                      <div className="relative h-48 lg:h-64 bg-slate-700/50 rounded-lg overflow-hidden">
+                        <video
+                          src="/PortofolioIksvaku/lifplay.mp4"
+                          className="object-cover w-full h-full"
+                          controls
+                          poster="/PortofolioIksvaku/reactprojects.jpg"
                         />
-                      </svg>
-                    </a>
+                      </div>
+                    </div>
+                    <div className="order-1 md:order-2">
+                      <h3 className="text-lg font-semibold text-white mb-3">
+                        Liftplay
+                      </h3>
+                      <p className="text-slate-300 text-sm mb-4 leading-relaxed">
+                        Aplicación moderna para la gestión de ascensores. Mantenimiento y control de
+                        ascensores con interfaz intuitiva y tecnología de
+                        vanguardia. Conexiones a Apis y un sistema GRPC Streaming.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full border border-green-500/30">
+                          NextJS
+                        </span>
+                        <span className="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full border border-green-500/30">
+                          Flowbite
+                        </span>
+                        <span className="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full border border-green-500/30">
+                          gRPC
+                        </span>
+                        <span className="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full border border-green-500/30">
+                          DriverJS
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Proyecto Sandscripter */}
+                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-green-500/30 transition-all duration-300">
+                  <div className="grid md:grid-cols-2 gap-6 items-center">
+                    <div className="order-1 md:order-1">
+                      <div className="relative h-48 lg:h-64 bg-slate-700/50 rounded-lg overflow-hidden">
+                        <video
+                          src="/PortofolioIksvaku/sandscripter.mp4"
+                          className="object-cover w-full h-full"
+                          controls
+                          poster="/PortofolioIksvaku/reactprojects.jpg"
+                        />
+                      </div>
+                    </div>
+                    <div className="order-2 md:order-2">
+                      <h3 className="text-lg font-semibold text-white mb-3">
+                        Sandscripter
+                      </h3>
+                      <p className="text-slate-300 text-sm mb-4 leading-relaxed">
+                        Aplicación web para generar y editar código de manera
+                        colaborativa. Incluye editor de código en tiempo real,
+                        sistema de versionado y integración con APIs de IA para
+                        asistencia en programación.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full border border-green-500/30">
+                          NextJS
+                        </span>
+                        <span className="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full border border-green-500/30">
+                          AI
+                        </span>
+                        <span className="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full border border-green-500/30">
+                          API
+                        </span>
+                        <span className="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full border border-green-500/30">
+                          Open Source
+                        </span>
+                      </div>
+                      <div className="flex justify-start gap-3">                        
+                        <a
+                          href="https://github.com/dawalberto/sandscripters-ai"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white text-sm font-medium rounded-lg transition-colors duration-200"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 mr-2"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                          </svg>
+                          Ver proyecto en GitHub
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Proyecto Jona Nutrición */}
+                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-green-500/30 transition-all duration-300">
+                  <div className="grid md:grid-cols-2 gap-6 items-center">
+                    <div className="order-2 md:order-1">
+                      <div className="relative h-48 lg:h-64 bg-slate-700/50 rounded-lg overflow-hidden">
+                        <video
+                          src="/PortofolioIksvaku/jonanutricion.mp4"
+                          className="object-cover w-full h-full"
+                          controls
+                          poster="/PortofolioIksvaku/reactprojects.jpg"
+                        />
+                      </div>
+                    </div>
+                    <div className="order-1 md:order-2">
+                      <h3 className="text-lg font-semibold text-white mb-3">
+                        Jona Nutrición
+                      </h3>
+                      <p className="text-slate-300 text-sm mb-4 leading-relaxed">
+                        Plataforma web para consultas nutricionales online.
+                        Incluye sistema de citas, calculadoras nutricionales,
+                        blog de contenido especializado y área de cliente
+                        personalizada.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full border border-green-500/30">
+                          NextJS
+                        </span>
+                        <span className="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full border border-green-500/30">
+                          AI
+                        </span>
+                        <span className="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full border border-green-500/30">
+                          API
+                        </span>
+                        <span className="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full border border-green-500/30">
+                          Open Source
+                        </span>
+                      </div>
+                      <div className="flex justify-start">
+                        <a
+                          href="https://jonanutricion.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-lg transition-colors duration-200"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                          Ver sitio web
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              {/* Proyecto Marbac */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
-                <div className="relative h-48 md:h-64 bg-slate-200">
-                  <video
-                    src="/PortofolioIksvaku/marbac.mp4"
-                    className="object-cover w-full h-full"
-                    controls
-                    poster="/PortofolioIksvaku/wordpress.jpg"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
-                    Marbac
-                  </h3>
-                  <p className="text-slate-600 mb-4">
-                    Desarrollé la web profesional Marbac, una web desarrollada
-                    en WordPress enfocada a las reformas de casas en Madrid,
-                    interiorismo y diseño. Implementé interfaz, instalación de
-                    wordpress en servidor, instalación del certificado SSL,
-                    instalación de plugins y asesoramiento al cliente.
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      WordPress
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      Diseño
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      SEO
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      Responsive
-                    </span>
-                  </div>
-                  <div className="flex justify-end">
-                    <a
-                      href="https://marbac.es"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                    >
-                      Visitar sitio
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            </div>
+          </div>
+          {/* Categoría: WordPress */}
+          <div className="mb-12 relative group">
+            <div className="bg-slate-800/60 backdrop-blur-sm p-6 rounded-xl shadow-xl border-l-4 border-blue-500 hover:shadow-blue-500/10 transition-all duration-300 relative z-10">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-blue-500 mr-3"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 19.5c-5.247 0-9.5-4.253-9.5-9.5S6.753 2.5 12 2.5s9.5 4.253 9.5 9.5-4.253 9.5-9.5 9.5z" />
+                  <path d="M3.5 12a8.5 8.5 0 1 1 17 0 8.5 8.5 0 0 1-17 0zm8.5 6.5a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13z" />
+                </svg>
+                WordPress
+              </h2>
+              <div className="space-y-8">
+                {/* Proyecto VT-TRAINING */}
+                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-blue-500/30 transition-all duration-300">
+                  <div className="grid md:grid-cols-2 gap-6 items-center">
+                    <div className="order-2 md:order-1">
+                      <div className="relative h-48 lg:h-64 bg-slate-700/50 rounded-lg overflow-hidden">
+                        <video
+                          src="/PortofolioIksvaku/vttraining.mp4"
+                          className="object-cover w-full h-full"
+                          controls
+                          poster="/PortofolioIksvaku/wordpress.jpg"
                         />
-                      </svg>
-                    </a>
+                      </div>
+                    </div>
+                    <div className="order-1 md:order-2">
+                      <h3 className="text-lg font-semibold text-white mb-3">
+                        VT-TRAINING
+                      </h3>
+                      <p className="text-slate-300 text-sm mb-4 leading-relaxed">
+                        Página web corporativa para empresa de formación
+                        especializada en el sector del transporte. Diseño
+                        moderno y responsive con sistema de gestión de
+                        contenidos personalizado.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full border border-blue-500/30">
+                          WordPress
+                        </span>
+                        <span className="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full border border-blue-500/30">
+                          Diseño
+                        </span>
+                        <span className="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full border border-blue-500/30">
+                          SEO
+                        </span>
+                        <span className="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full border border-blue-500/30">
+                          Responsive
+                        </span>
+                      </div>
+                      <div className="flex justify-start">
+                        <a
+                          href="https://vt-training.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors duration-200"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                          Ver sitio web
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Proyecto Marbac */}
+                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-blue-500/30 transition-all duration-300">
+                  <div className="grid md:grid-cols-2 gap-6 items-center">
+                    <div className="order-1 md:order-1">
+                      <div className="relative h-48 lg:h-64 bg-slate-700/50 rounded-lg overflow-hidden">
+                        <video
+                          src="/PortofolioIksvaku/marbac.mp4"
+                          className="object-cover w-full h-full"
+                          controls
+                          poster="/PortofolioIksvaku/wordpress.jpg"
+                        />
+                      </div>
+                    </div>
+                    <div className="order-2 md:order-2">
+                      <h3 className="text-lg font-semibold text-white mb-3">
+                        Marbac
+                      </h3>
+                      <p className="text-slate-300 text-sm mb-4 leading-relaxed">
+                        Sitio web para empresa especializada en mármoles y
+                        acabados de construcción. Incluye catálogo de productos,
+                        galería de proyectos y formulario de contacto
+                        optimizado.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full border border-blue-500/30">
+                          WordPress
+                        </span>
+                        <span className="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full border border-blue-500/30">
+                          Diseño
+                        </span>
+                        <span className="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full border border-blue-500/30">
+                          SEO
+                        </span>
+                        <span className="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full border border-blue-500/30">
+                          Responsive
+                        </span>
+                      </div>
+                      <div className="flex justify-start">
+                        <a
+                          href="https://marbac.es/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors duration-200"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                          Ver sitio web
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -169,235 +359,99 @@ export default function Proyectos() {
           </div>
 
           {/* Categoría: PlayCanvas */}
-          <div className="mb-12 pt-12 border-t border-slate-200">
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-orange-500 mr-3"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M21.58 16.09l-1.09-7.66A3.996 3.996 0 0 0 16.53 5H7.47C5.48 5 3.79 6.46 3.51 8.43l-1.09 7.66C2.2 17.63 3.39 19 4.94 19c.68 0 1.32-.27 1.8-.75L9 16h6l2.25 2.25c.48.48 1.13.75 1.8.75 1.56 0 2.75-1.37 2.53-2.91zM11 11H9v2H8v-2H6v-1h2V8h1v2h2v1zm4-1c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2 3c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" />
-              </svg>
-              PlayCanvas
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Proyecto Blast Heroes */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
-                <div className="relative h-48 md:h-64 bg-slate-200">
-                  <video
-                    src="/PortofolioIksvaku/blastheroes.mp4"
-                    className="object-contain w-full h-full"
-                    controls
-                    poster="/PortofolioIksvaku/playcanvas.jpg"
-                    style={{ maxHeight: "100%" }}
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
-                    Blast Heroes
-                  </h3>
-                  <p className="text-slate-600 mb-4">
-                    Proyecto desarrollado dentro del entorno de Snatchap.
-                    Participé en el proyecto en una fase avanzada, enfocándome
-                    en la integración de UI y modelos 2D/3D en el entorno de
-                    juego. Colaboré estrechamente con programación y arte para
-                    asegurar una experiencia fluida, y gestioné parches y
-                    actualizaciones.
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      PlayCanvas
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      Snatchap
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      UI/UX
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      Juego móvil
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Proyecto My Life */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
-                <div className="relative h-48 md:h-64 bg-slate-200">
-                  <video
-                    src="/PortofolioIksvaku/projectLife.mp4"
-                    className="object-cover w-full h-full"
-                    controls
-                    poster="/PortofolioIksvaku/playcanvas.jpg"  
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
-                    My Life
-                  </h3>
-                  <p className="text-slate-600 mb-4">
-                    Proyecto desarrollado dentro del entorno de Snatchap.
-                    Participé en el proyecto en una fase inicial, enfocándome en
-                    la integración de UI y modelos 2D/3D en el entorno de juego.
-                    Colaboré estrechamente con los equipos de programación, arte
-                    y diseñadores para asegurar una experiencia fluida.
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      PlayCanvas
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      Snatchap
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      Node.js
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      IDLE Game
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Categoría: NextJS */}
-          <div className="mb-12 pt-12 border-t border-slate-200">
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-blue-500 mr-3"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-              </svg>
-              NextJS
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Proyecto Sandscripter */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
-                <div className="relative h-48 lg:h-72 bg-slate-200">
-                  <video
-                    src="/PortofolioIksvaku/sandscripter.mp4"
-                    className="object-cover w-full h-full"
-                    controls
-                    poster="/PortofolioIksvaku/reactprojects.jpg" 
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
-                    Sandscripter
-                  </h3>
-                  <p className="text-slate-600 mb-4">
-                    Sandscripter es una aplicación desarrollada para la Open
-                    Source Jam 2023, diseñada para simplificar la creación de
-                    contenido visual en el desarrollo web. Utiliza una API
-                    basada en inteligencia artificial que automatiza la
-                    generación de imágenes genéricas y libres de derechos de
-                    autor, lo cual facilita enormemente la creación de páginas
-                    web.
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      NextJS
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      IA
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      API
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      Open Source
-                    </span>
-                  </div>
-                  <div className="flex justify-end">
-                    <a
-                      href="https://github.com/dawalberto/sandscripters-ai"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                    >
-                      Ver en Github
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          <div className="mb-12 relative group">
+            <div className="bg-slate-800/60 backdrop-blur-sm p-6 rounded-xl shadow-xl border-l-4 border-orange-500 hover:shadow-orange-500/10 transition-all duration-300 relative z-10">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-orange-500 mr-3"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                PlayCanvas
+              </h2>
+              <div className="space-y-8">
+                {/* Proyecto Blast Heroes */}
+                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-orange-500/30 transition-all duration-300">
+                  <div className="grid md:grid-cols-2 gap-6 items-center">
+                    <div className="order-1 md:order-1">
+                      <div className="relative h-48 lg:h-64 bg-slate-700/50 rounded-lg overflow-hidden">
+                        <video
+                          src="/PortofolioIksvaku/blastheros.mp4"
+                          className="object-cover w-full h-full"
+                          controls
+                          poster="/PortofolioIksvaku/playcanvas.jpg"
                         />
-                      </svg>
-                    </a>
+                      </div>
+                    </div>
+                    <div className="order-2 md:order-2">
+                      <h3 className="text-lg font-semibold text-white mb-3">
+                        Blast Heroes
+                      </h3>
+                      <p className="text-slate-300 text-sm mb-4 leading-relaxed">
+                        Juego web 3D desarrollado en PlayCanvas. Mecánicas de
+                        combate dinámico con elementos de estrategia en tiempo
+                        real. Optimizado para navegadores web con gráficos de
+                        alta calidad.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full border border-orange-500/30">
+                          PlayCanvas
+                        </span>
+                        <span className="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full border border-orange-500/30">
+                          3D
+                        </span>
+                        <span className="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full border border-orange-500/30">
+                          WebGL
+                        </span>
+                        <span className="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full border border-orange-500/30">
+                          Game Dev
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Proyecto Jona Nutrición */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
-                <div className="relative h-48 lg:h-72 bg-slate-200">
-                  <video
-                    src="/PortofolioIksvaku/jonanutricion.mp4"
-                    className="object-cover w-full h-full"
-                    controls
-                    poster="/PortofolioIksvaku/reactprojects.jpg"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
-                    Jona Nutrición
-                  </h3>
-                  <p className="text-slate-600 mb-4">
-                    Desarrollé la web profesional para Jona Pérez, un dietista-nutricionista
-                    especializado en nutrición deportiva con sede en Sant Vicent del Raspeig, Alacant.
-                    El sitio presenta sus servicios de planes nutricionales personalizados, consultas
-                    y seguimiento para diferentes objetivos como pérdida de peso, definición muscular
-                    y bienestar general.
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      NextJS
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      Responsive
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      Diseño Web
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      SEO
-                    </span>
-                  </div>
-                  <div className="flex justify-end">
-                    <a
-                      href="https://www.jonanutricion.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                    >
-                      Visitar sitio
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                {/* Proyecto My Life */}
+                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-orange-500/30 transition-all duration-300">
+                  <div className="grid md:grid-cols-2 gap-6 items-center">
+                    <div className="order-1 md:order-1">
+                      <div className="relative h-48 lg:h-64 bg-slate-700/50 rounded-lg overflow-hidden">
+                        <video
+                          src="/PortofolioIksvaku/mylife.mp4"
+                          className="object-cover w-full h-full"
+                          controls
+                          poster="/PortofolioIksvaku/playcanvas.jpg"
                         />
-                      </svg>
-                    </a>
+                      </div>
+                    </div>
+                    <div className="order-2 md:order-2">
+                      <h3 className="text-lg font-semibold text-white mb-3">
+                        My Life
+                      </h3>
+                      <p className="text-slate-300 text-sm mb-4 leading-relaxed">
+                        Simulador de vida interactivo desarrollado en
+                        PlayCanvas. Permite a los usuarios tomar decisiones que
+                        afectan el desarrollo del personaje a lo largo de
+                        diferentes etapas de la vida.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full border border-orange-500/30">
+                          PlayCanvas
+                        </span>
+                        <span className="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full border border-orange-500/30">
+                          Snatchap
+                        </span>
+                        <span className="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full border border-orange-500/30">
+                          Node.js
+                        </span>
+                        <span className="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full border border-orange-500/30">
+                          IDLE Game
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -405,80 +459,82 @@ export default function Proyectos() {
           </div>
 
           {/* Categoría: Unity */}
-          <div className="pt-12 border-t border-slate-200">
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-blue-500 mr-3"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z" />
-              </svg>
-              Unity
-            </h2>
-            <div className="grid grid-cols-1 gap-8">
-              {/* Proyecto Interview Dualist */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
-                <div className="relative h-48 lg:h-72 bg-slate-200">
-                  <video
-                    src="/PortofolioIksvaku/interviewDualist.mp4"
-                    className="object-cover w-full h-full"
-                    controls
-                    poster="/.jpg"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
-                    Interview Dualist
-                  </h3>
-                  <p className="text-slate-600 mb-4">
-                    Interview Duelist es un juego tipo blackjack creado para la
-                    Game Jam 2021 de Game Jam Academy, centrado en la
-                    empleabilidad. En este juego de cartas, los jugadores
-                    encarnan a Roboto, un robot que busca su primer empleo en
-                    una prestigiosa empresa de videojuegos. Para lograrlo, debe
-                    impresionar al Boss en una entrevista, destacando en áreas
-                    clave como Experience, Tech Skills, Soft Skills, y
-                    Portfolio.
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      Unity
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      C#
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      Game Jam
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
-                      2D
-                    </span>
-                  </div>
-                  <div className="flex justify-end">
-                    <a
-                      href="https://kikritz.itch.io/interview-duelist"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                    >
-                      Ver en Itchio
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          <div className="relative group">
+            <div className="bg-slate-800/60 backdrop-blur-sm p-6 rounded-xl shadow-xl border-l-4 border-purple-500 hover:shadow-purple-500/10 transition-all duration-300 relative z-10">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-purple-500 mr-3"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 0L1.608 6v12L12 24l10.392-6V6L12 0zm-1.073 7.5L8.5 9.5l2.427 2L8.5 13.5l2.427 2L8.5 17.5l2.427 2L8.5 21.5l2.427-2L13.354 17l-2.427-2L13.354 13l-2.427-2L13.354 9l-2.427-2z" />
+                </svg>
+                Unity
+              </h2>
+              <div className="space-y-8">
+                {/* Proyecto Interview Dualist */}
+                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-purple-500/30 transition-all duration-300">
+                  <div className="grid md:grid-cols-2 gap-6 items-center">
+                    <div className="order-1 md:order-1">
+                      <div className="relative h-48 lg:h-64 bg-slate-700/50 rounded-lg overflow-hidden">
+                        <video
+                          src="/PortofolioIksvaku/interviewdualist.mp4"
+                          className="object-cover w-full h-full"
+                          controls
+                          poster="/PortofolioIksvaku/unity.jpg"
                         />
-                      </svg>
-                    </a>
+                      </div>
+                    </div>
+                    <div className="order-2 md:order-2">
+                      <h3 className="text-lg font-semibold text-white mb-3">
+                        Interview Dualist
+                      </h3>
+                      <p className="text-slate-300 text-sm mb-4 leading-relaxed">
+                        Juego 2D desarrollado para Game Jam. Mecánica innovadora
+                        donde el jugador debe responder preguntas de entrevista
+                        mientras controla un personaje en un entorno de
+                        plataformas. Combina elementos de puzzle y acción.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full border border-purple-500/30">
+                          Unity
+                        </span>
+                        <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full border border-purple-500/30">
+                          C#
+                        </span>
+                        <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full border border-purple-500/30">
+                          Game Jam
+                        </span>
+                        <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full border border-purple-500/30">
+                          2D
+                        </span>
+                      </div>
+                      <div className="flex justify-start">
+                        <a
+                          href="https://iksvaku.itch.io/interview-dualist"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition-colors duration-200"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                          Jugar en itch.io
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -487,33 +543,41 @@ export default function Proyectos() {
         </div>
       </div>
 
-      {/* Sección de llamada a la acción */}
+      {/* Call to action */}
       <div className="bg-slate-900 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
-            ¿Interesado en mi perfil?
+          <h2 className="text-xl font-bold text-white mb-6">
+            ¿Te interesa algún proyecto o quieres colaborar?
           </h2>
-          <p className="text-slate-300 max-w-2xl mx-auto mb-8">
-           Siempre estoy dispuesto a aprender y a trabajar en nuevos proyectos en mi tiempo libre.
-          </p>
-          <Link
-            href="/contacto"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition-all duration-300 inline-flex items-center"
-          >
-            Contactar
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 ml-2"
-              viewBox="0 0 20 20"
-              fill="currentColor"
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link
+              href="/aficiones"
+              className="inline-flex items-center justify-center px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-lg transition-colors duration-200"
             >
-              <path
-                fillRule="evenodd"
-                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </Link>
+              Ver mis aficiones
+            </Link>
+            <Link
+              href="/contacto"
+              className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200"
+            >
+              Contactar conmigo
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 ml-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </Link>
+          </div>
         </div>
       </div>
     </main>
