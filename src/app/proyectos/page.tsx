@@ -379,7 +379,7 @@ export default function Proyectos() {
                     <div className="order-1 md:order-1">
                       <div className="relative h-48 lg:h-64 bg-slate-700/50 rounded-lg overflow-hidden">
                         <video
-                          src="/PortofolioIksvaku/blastheros.mp4"
+                          src="/PortofolioIksvaku/blastheroes.mp4"
                           className="object-cover w-full h-full"
                           controls
                           poster="/PortofolioIksvaku/playcanvas.jpg"
@@ -420,7 +420,7 @@ export default function Proyectos() {
                     <div className="order-1 md:order-1">
                       <div className="relative h-48 lg:h-64 bg-slate-700/50 rounded-lg overflow-hidden">
                         <video
-                          src="/PortofolioIksvaku/mylife.mp4"
+                          src="/PortofolioIksvaku/projectLife.mp4"
                           className="object-cover w-full h-full"
                           controls
                           poster="/PortofolioIksvaku/playcanvas.jpg"
