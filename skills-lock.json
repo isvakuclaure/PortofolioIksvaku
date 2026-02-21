@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "github": {
+      "source": "dicklesworthstone/agent_flywheel_clawdbot_skills_and_integrations",
+      "sourceType": "github",
+      "computedHash": "889a555897aaf8a5c759fd0f07f276341df26f367346ba77223e071fc4bb2ba1"
+    }
+  }
+}
