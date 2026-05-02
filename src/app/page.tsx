@@ -13,29 +13,40 @@ const codeLines = [
 ];
 
 function CodeAnimation() {
-  const [lineIndex, setLineIndex] = useState(0);
   const [displayed, setDisplayed] = useState('');
-  const [erasing, setErasing] = useState(false);
 
   useEffect(() => {
-    const target = codeLines[lineIndex];
-    let t: ReturnType<typeof setTimeout>;
-    if (!erasing) {
-      if (displayed.length < target.length) {
-        t = setTimeout(() => setDisplayed(target.slice(0, displayed.length + 1)), 48);
+    let lineIdx   = 0;
+    let charIdx   = 0;
+    let erasing   = false;
+    let pauseTicks = 0;
+
+    const id = setInterval(() => {
+      if (pauseTicks > 0) { pauseTicks--; return; }
+
+      const target = codeLines[lineIdx];
+
+      if (!erasing) {
+        if (charIdx < target.length) {
+          charIdx++;
+          setDisplayed(target.slice(0, charIdx));
+        } else {
+          pauseTicks = 28;   // ~1.7s pause antes de borrar
+          erasing = true;
+        }
       } else {
-        t = setTimeout(() => setErasing(true), 1600);
+        if (charIdx > 0) {
+          charIdx--;
+          setDisplayed(target.slice(0, charIdx));
+        } else {
+          erasing = false;
+          lineIdx = (lineIdx + 1) % codeLines.length;
+        }
       }
-    } else {
-      if (displayed.length > 0) {
-        t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 24);
-      } else {
-        setErasing(false);
-        setLineIndex((i) => (i + 1) % codeLines.length);
-      }
-    }
-    return () => clearTimeout(t);
-  }, [displayed, erasing, lineIndex]);
+    }, 60);
+
+    return () => clearInterval(id);
+  }, []);   // ← corre UNA sola vez, sin dependencias
 
   return (
     /* Overlay fijo — pegado al borde inferior de la foto, altura constante */

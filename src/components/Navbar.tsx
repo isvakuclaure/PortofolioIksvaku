@@ -23,8 +23,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-14">
 
           {/* Logo */}
-          <Link href="/" className="text-sm font-bold text-slate-800 tracking-tight hover:text-blue-500 transition-colors">
-            Iksvaku
+          <Link href="/" className="flex flex-col hover:opacity-80 transition-opacity leading-tight">
+            <span className="text-sm font-bold text-slate-800 tracking-tight">Iksvaku Claure Manchón</span>
+            <span className="text-[10px] text-slate-400 font-medium">Frontend Developer</span>
           </Link>
 
           {/* Desktop links */}
