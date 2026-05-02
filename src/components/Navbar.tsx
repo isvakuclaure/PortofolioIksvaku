@@ -1,119 +1,86 @@
 'use client';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const links = [
+    { href: '/',          label: 'Inicio'     },
+    { href: '/proyectos', label: 'Proyectos'  },
+    { href: '/aficiones', label: 'Aficiones'  },
+    { href: '/contacto',  label: 'Contacto'   },
+  ];
+
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   return (
-    <nav className="bg-gradient-to-r from-slate-900 to-slate-800 text-white fixed w-full z-50">
+    <nav className="bg-white border-b border-gray-200 fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo y título */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="text-xl font-bold">
-              Portfolio de Iksvaku
-            </Link>
+        <div className="flex items-center justify-between h-14">
+
+          {/* Logo */}
+          <Link href="/" className="text-sm font-bold text-slate-800 tracking-tight hover:text-blue-500 transition-colors">
+            Iksvaku
+          </Link>
+
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-1">
+            {links.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                  isActive(href)
+                    ? 'bg-blue-50 text-blue-600'
+                    : 'text-slate-500 hover:text-slate-800 hover:bg-gray-100'
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
           </div>
 
-          {/* Enlaces de navegación para desktop */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-4">
-              <Link
-                href="/"
-                className="hover:bg-blue-900 px-3 py-2 rounded-md"
-              >
-                Inicio
-              </Link>
-              <Link
-                href="/proyectos"
-                className="hover:bg-blue-900 px-3 py-2 rounded-md"
-              >
-                Proyectos
-              </Link>
-              <Link
-                href="/aficiones"
-                className="hover:bg-blue-900 px-3 py-2 rounded-md"
-              >
-                Aficiones
-              </Link>
-              <Link
-                href="/contacto"
-                className="hover:bg-blue-900 px-3 py-2 rounded-md"
-              >
-                Contacto
-              </Link>
-            </div>
-          </div>
-
-          {/* Botón menú móvil */}
+          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md hover:bg-blue-900"
+              className="p-2 rounded-md text-slate-500 hover:text-slate-800 hover:bg-gray-100 transition-colors"
             >
-              <svg
-                className="h-6 w-6"
-                stroke="currentColor"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
+              <svg className="h-5 w-5" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 {isMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
           </div>
         </div>
 
-        {/* Menú móvil */}
+        {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="md:hidden border-t border-gray-100 py-2">
+            {links.map(({ href, label }) => (
               <Link
-                href="/"
-                className="block px-3 py-2 rounded-md hover:bg-blue-900"
+                key={href}
+                href={href}
                 onClick={() => setIsMenuOpen(false)}
+                className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  isActive(href)
+                    ? 'bg-blue-50 text-blue-600'
+                    : 'text-slate-500 hover:text-slate-800 hover:bg-gray-100'
+                }`}
               >
-                Inicio
+                {label}
               </Link>
-              <Link
-                href="/proyectos"
-                className="block px-3 py-2 rounded-md hover:bg-blue-900"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Proyectos
-              </Link>
-              <Link
-                href="/aficiones"
-                className="block px-3 py-2 rounded-md hover:bg-blue-900"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Aficiones
-              </Link>
-              <Link
-                href="/contacto"
-                className="block px-3 py-2 rounded-md hover:bg-blue-900"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contacto
-              </Link>
-            </div>
+            ))}
           </div>
         )}
       </div>
     </nav>
   );
-} 
+}
