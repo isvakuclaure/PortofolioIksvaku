@@ -71,7 +71,9 @@ function ProjectIndex({ active }: { active: string }) {
       aria-label="Índice de proyectos"
       className="sticky top-[58px] z-20 -mx-5 min-w-0 max-w-full self-start border-b border-rule bg-ground px-5 py-2 sm:-mx-7 sm:px-7 lg:top-20 lg:mx-0 lg:max-w-none lg:border-0 lg:bg-transparent lg:px-0 lg:py-0"
     >
-      <p className="mb-3 hidden font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-soft lg:block">Índice</p>
+      <h2 className="mb-5 hidden font-mono text-[13px] font-medium uppercase tracking-[0.18em] text-ink lg:block">
+        Trabajo destacado
+      </h2>
       <ul className="-mx-1 flex min-w-0 gap-1 overflow-x-auto pb-1 lg:mx-0 lg:flex-col lg:gap-0 lg:overflow-visible lg:pb-0">
         {featured.map((project) => {
           const current = active === project.slug;
@@ -107,7 +109,7 @@ function Record({ project }: { project: FeaturedProject }) {
   return (
     <article
       id={project.slug}
-      className="scroll-mt-32 grid min-w-0 gap-8 border-t border-rule py-10 md:scroll-mt-24 md:grid-cols-[180px_1fr] md:gap-11 md:py-11"
+      className="scroll-mt-32 grid min-w-0 gap-8 border-t border-rule py-10 first:border-t-0 first:pt-0 md:scroll-mt-24 md:grid-cols-[180px_1fr] md:gap-11 md:py-11 md:first:pt-0"
     >
       {/* Rail de datos duros. En móvil va después del cuerpo: primero el nombre, luego la ficha */}
       <div className="order-2 min-w-0 md:order-1">
@@ -322,7 +324,9 @@ export default function Proyectos() {
       {/* Destacados */}
       <section className="border-b border-rule pb-16 pt-12">
         <div className="mx-auto max-w-[1240px] px-5 sm:px-7">
-          <h2 className="mb-8 font-mono text-[13px] font-medium uppercase tracking-[0.18em]">Trabajo destacado</h2>
+          <h2 className="mb-6 font-mono text-[13px] font-medium uppercase tracking-[0.18em] lg:hidden">
+            Trabajo destacado
+          </h2>
 
           <div className="grid min-w-0 gap-10 lg:grid-cols-[170px_1fr] lg:gap-14">
             <ProjectIndex active={active} />
