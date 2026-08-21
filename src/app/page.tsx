@@ -1,228 +1,187 @@
-'use client';
-import Image from "next/image";
-import Link from "next/link";
-import { useState, useEffect } from "react";
+import Image from 'next/image';
+import Link from 'next/link';
 
-const codeLines = [
-  "const role = 'Frontend Developer'",
-  "import { Next, React } from 'stack'",
-  "const passion = 'clean interfaces'",
-  "npm run dev  →  localhost:3000",
-  "git commit -m 'ship it 🚀'",
-  "const coffee = require('fuel')",
+const BASE = '/PortofolioIksvaku';
+
+// Tres fases, no cuatro empleos: la dispersión contada como progresión
+const phases = [
+  {
+    years: '2021 — 2022',
+    title: 'Juegos',
+    text: 'UI e integración de modelos 2D/3D en PlayCanvas, para juegos jugados por miles de personas a la vez. Aprendí a hacer interfaces cuando cada milisegundo cuenta.',
+  },
+  {
+    years: '2023 — 2024',
+    title: 'Producto',
+    text: 'Frontend y APIs en equipos internacionales. React, Node y pipelines de integración continua. Aprendí a trabajar sobre código que no escribí yo.',
+  },
+  {
+    years: '2024 — hoy',
+    title: 'Móvil e IoT',
+    text: 'Apps que hablan con hardware real en edificios habitados. Aprendí que cuando la interfaz falla, alguien se queda en la calle.',
+  },
 ];
 
-function CodeAnimation() {
-  const [displayed, setDisplayed] = useState('');
-
-  useEffect(() => {
-    let lineIdx   = 0;
-    let charIdx   = 0;
-    let erasing   = false;
-    let pauseTicks = 0;
-
-    const id = setInterval(() => {
-      if (pauseTicks > 0) { pauseTicks--; return; }
-
-      const target = codeLines[lineIdx];
-
-      if (!erasing) {
-        if (charIdx < target.length) {
-          charIdx++;
-          setDisplayed(target.slice(0, charIdx));
-        } else {
-          pauseTicks = 28;   // ~1.7s pause antes de borrar
-          erasing = true;
-        }
-      } else {
-        if (charIdx > 0) {
-          charIdx--;
-          setDisplayed(target.slice(0, charIdx));
-        } else {
-          erasing = false;
-          lineIdx = (lineIdx + 1) % codeLines.length;
-        }
-      }
-    }, 60);
-
-    return () => clearInterval(id);
-  }, []);   // ← corre UNA sola vez, sin dependencias
-
-  return (
-    /* Overlay fijo — pegado al borde inferior de la foto, altura constante */
-    <div style={{
-      position: 'absolute', bottom: 0, left: 0, right: 0,
-      background: 'rgba(10,12,20,0.88)',
-      backdropFilter: 'blur(6px)',
-      borderTop: '1px solid rgba(255,255,255,0.07)',
-      borderRadius: '0 0 12px 12px',
-      padding: '8px 12px 10px',
-      height: 52,                 /* fijo — nunca cambia */
-      overflow: 'hidden',
-      fontFamily: "'Geist Mono', 'Fira Code', monospace",
-      fontSize: 11,
-      lineHeight: 1,
-    }}>
-      {/* Dots */}
-      <div style={{ display: 'flex', gap: 4, marginBottom: 6 }}>
-        {['#ff5f57','#febc2e','#28c840'].map(c => (
-          <span key={c} style={{ width: 6, height: 6, borderRadius: '50%', background: c, display: 'inline-block' }} />
-        ))}
-      </div>
-      {/* Línea animada */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <span style={{ color: '#4b5563' }}>{'>'}</span>
-        <span style={{ color: '#93c5fd', marginLeft: 4, whiteSpace: 'nowrap', overflow: 'hidden', maxWidth: '100%' }}>{displayed}</span>
-        <span style={{
-          display: 'inline-block', width: 1.5, height: 11,
-          background: '#60a5fa', flexShrink: 0,
-          animation: 'blink 1s step-end infinite',
-        }} />
-      </div>
-      <style>{`@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}`}</style>
-    </div>
-  );
-}
-
 const experience = [
-  { period: '2024 — Presente', role: 'Desarrollador Front-end',      company: 'Liftel',              description: 'Next.js, integración de APIs, animaciones CSS y mantenimiento de proyectos.',      tags: ['Next.js', 'CSS', 'API'] },
-  { period: '2023 — 2024',     role: 'Administrador de Salesforce',   company: 'Multiply College',    description: 'Arquitectura de datos, flujos, dashboards, reportes y reglas de validación.',     tags: ['Salesforce', 'Flows', 'Dashboards'] },
-  { period: 'Jun — Ago 2023',  role: 'Ingeniero Junior de Software',  company: 'Solera, Inc.',        description: 'Frontend con React.js, backend Node.js, automatización Jenkins y Scrum.',         tags: ['React.js', 'Node.js', 'Jenkins'] },
-  { period: 'Sep 2021 — Jul 2022', role: 'Desarrollador Front-end',   company: 'GGTech Entertainment', description: 'UI/UX en Blast Heroes y My Life (Snapchat) con PlayCanvas y Node.js.',         tags: ['PlayCanvas', 'Node.js', 'UI/UX'] },
+  { period: 'Dic 2024 — hoy', role: 'Desarrollador Frontend', company: 'Liftel', detail: 'React Native, Next.js, gRPC y apoyo en backend con Go' },
+  { period: 'May — Oct 2024', role: 'Administrador de Salesforce', company: 'Multiply College', detail: 'Arquitectura de datos y automatización de procesos' },
+  { period: 'Jun — Ago 2023', role: 'Ingeniero Junior de Software', company: 'Solera, Inc.', detail: 'React y Node en un equipo internacional' },
+  { period: 'Oct — Dic 2022', role: 'Responsable de IT / Programador web', company: 'Krystaline', detail: 'WordPress y material promocional' },
+  { period: 'Sep 2021 — Jul 2022', role: 'Desarrollador Frontend', company: 'GGTech Entertainment', detail: 'UI e integración 2D/3D en PlayCanvas' },
 ];
 
 const education = [
-  { institution: 'Trailhead by Salesforce',          title: 'Salesforce x3 Certification',                   period: 'Mar — Nov 2024',          tags: ['Admin', 'Flow Builder', 'Apex'] },
-  { institution: 'IES Mare Nostrum',                  title: 'Desarrollo de Aplicaciones Web',                period: 'Sep 2018 — Jun 2020',     tags: ['HTML/CSS', 'JavaScript', 'PHP', 'MySQL'] },
-  { institution: 'Escuela de Organización Industrial', title: 'Creación y Diseño de Videojuegos en Unity',   period: 'Feb — Jun 2021',          tags: ['Unity', 'C#', 'Game Design'] },
-  { institution: 'Garantía Juvenil',                  title: 'Internet de las Cosas y Big Data',              period: 'Sep — Dic 2018',          tags: ['IoT', 'Big Data', 'Python'] },
+  { period: '2018 — 2020', title: 'Grado Superior en Desarrollo de Aplicaciones Web', place: 'IES Mare Nostrum' },
+  { period: '2024', title: 'Salesforce x3 Certification', place: 'Trailhead by Salesforce' },
+  { period: '2021', title: 'Creación y diseño de videojuegos en Unity', place: 'Escuela de Organización Industrial' },
+  { period: '2018', title: 'Internet de las Cosas y Big Data', place: 'Garantía Juvenil' },
 ];
 
 export default function Home() {
   return (
-    <main>
-
+    <main className="bg-ground">
       {/* ── HERO ── */}
-      <section className="bg-white border-b border-gray-100">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-14 py-12 md:py-16">
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-14">
-
-            {/* Texto */}
-            <div className="flex-1 order-2 md:order-1">
-              <h1 className="text-4xl sm:text-5xl font-black text-slate-900 leading-tight mb-3">
-                Frontend<br />Developer
-              </h1>
-              <p className="text-slate-500 text-sm mb-6 max-w-sm leading-relaxed">
-                Creando experiencias web modernas e interactivas con las últimas tecnologías.
-              </p>
-              <div className="flex flex-wrap gap-3 mb-8">
-                <Link href="/proyectos" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-5 rounded-lg transition-colors text-sm">
-                  Ver proyectos
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </Link>
-                <Link href="/contacto" className="inline-flex items-center gap-2 border border-gray-200 hover:border-gray-400 text-slate-600 font-medium py-2.5 px-5 rounded-lg transition-colors text-sm">
-                  Contacto
-                </Link>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Salesforce'].map(tech => (
-                  <span key={tech} className="bg-gray-100 text-slate-500 text-xs px-3 py-1.5 rounded-full border border-gray-200">{tech}</span>
-                ))}
+      <section className="border-b border-rule py-16 md:py-20">
+        <div className="mx-auto grid max-w-[1240px] items-start gap-9 px-5 sm:px-7 md:grid-cols-[246px_1fr] md:gap-14">
+          {/* Retrato con marco de foto impresa */}
+          <div className="mx-auto w-full max-w-[246px] md:mx-0">
+            <div className="bg-panel p-[11px] pb-[34px] shadow-[0_2px_3px_rgba(20,23,27,0.14),0_16px_34px_-14px_rgba(20,23,27,0.14)]">
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-panel-sunk">
+                <Image
+                  src={`${BASE}/retrato.jpg`}
+                  alt="Retrato de Iksvaku Claure Manchón"
+                  fill
+                  priority
+                  sizes="(max-width: 767px) 60vw, 224px"
+                  className="object-cover object-center"
+                />
               </div>
             </div>
+            <p className="mt-3 text-center font-mono text-[9.5px] uppercase tracking-[0.12em] text-ink-soft">
+              Alicante · 2026
+            </p>
+          </div>
 
-            {/* Foto con marco estilo foto impresa */}
-            <div className="order-1 md:order-2 flex-shrink-0 mx-auto md:mx-0">
-              <div style={{
-                background: '#fff',
-                padding: '8px 8px 28px 8px',
-                boxShadow: '0 4px 24px rgba(0,0,0,0.13), 0 1px 4px rgba(0,0,0,0.08)',
-                borderRadius: 4,
-                display: 'inline-block',
-              }}>
-                <div className="relative w-52 h-64 sm:w-56 sm:h-72 overflow-hidden" style={{ borderRadius: 2 }}>
-                  <Image
-                    src="/PortofolioIksvaku/portada.jpg"
-                    alt="Iksvaku portrait"
-                    fill
-                    className="object-cover object-center"
-                    priority
-                    sizes="224px"
-                  />
-                  <CodeAnimation />
+          <div>
+            <p className="mb-4 font-mono text-[10.5px] font-medium uppercase tracking-[0.16em] text-ink-soft">
+              Frontend · Web y móvil
+            </p>
+            <h1 className="text-[clamp(40px,6.2vw,68px)] leading-[0.98]">
+              Interfaces
+              <br />
+              que abren
+              <br />
+              puertas.
+            </h1>
+            <p className="mt-5 max-w-[34ch] font-prose text-[20px] leading-[1.5] text-ink-mid">
+              Literalmente. Soy{' '}
+              <span className="border-b-2 border-signal-lamp pb-px text-ink">
+                la conexión entre la persona y el backend
+              </span>
+              : la capa que se toca. Detrás hay un equipo y un sistema; mi parte es que entre pulsar el botón y que el
+              portal se abra no haya nada que se note.
+            </p>
+
+            <dl className="mt-8 flex flex-col border-y border-rule sm:flex-row sm:flex-wrap">
+              {[
+                { label: 'Trabajando desde', value: '2021' },
+                { label: 'Base', value: 'Alicante · remoto' },
+                { label: 'Stack', value: 'React · Next.js · React Native' },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="border-b border-rule-soft py-3 sm:mr-6 sm:border-b-0 sm:border-r sm:py-3.5 sm:pr-6 sm:last:mr-0 sm:last:border-r-0 sm:last:pr-0"
+                >
+                  <dt className="mb-1 font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">
+                    {item.label}
+                  </dt>
+                  <dd className="text-[14px] font-semibold">{item.value}</dd>
                 </div>
+              ))}
+              <div className="py-3 sm:py-3.5">
+                <dt className="mb-1 font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">Estado</dt>
+                <dd className="inline-flex items-center gap-2 font-mono text-[10.5px] font-medium uppercase tracking-[0.13em] text-live">
+                  <span aria-hidden className="h-[7px] w-[7px] rounded-full bg-live-lamp" />
+                  Abierto a ofertas
+                </dd>
               </div>
+            </dl>
+
+            <div className="mt-7 flex flex-wrap gap-2.5">
+              <Link
+                href="/proyectos"
+                className="border border-ink bg-ink px-5 py-3 text-[13px] font-semibold uppercase tracking-[0.04em] text-ground transition-colors hover:border-ink-mid hover:bg-ink-mid"
+              >
+                Ver el trabajo
+              </Link>
+              <Link
+                href="/contacto"
+                className="border border-rule px-5 py-3 text-[13px] font-semibold uppercase tracking-[0.04em] text-ink transition-colors hover:border-ink"
+              >
+                Contactar
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── TRAYECTORIA ── */}
-      <section className="py-14 bg-gray-50 border-b border-gray-100">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-1 h-5 rounded-full bg-slate-300" />
-            <h2 className="text-base font-bold text-slate-700 uppercase tracking-wide">Trayectoria profesional</h2>
+      {/* ── FASES ── */}
+      <section className="border-b border-rule py-16">
+        <div className="mx-auto max-w-[1240px] px-5 sm:px-7">
+          <div className="mb-8 flex flex-wrap items-baseline justify-between gap-5">
+            <h2 className="font-mono text-[13px] font-medium uppercase tracking-[0.18em]">Cómo llegué aquí</h2>
+            <span className="font-mono text-[11px] tracking-[0.1em] text-ink-soft">
+              Juegos → producto → móvil
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {experience.map((exp) => (
-              <div key={exp.company} className="bg-white rounded-xl border border-gray-200 p-5 hover:border-gray-300 transition-colors">
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <div>
-                    <p className="text-xs text-slate-400 font-mono mb-0.5">{exp.period}</p>
-                    <h3 className="text-sm font-bold text-slate-800 leading-tight">{exp.role}</h3>
-                    <p className="text-xs font-semibold text-slate-600 mt-0.5">{exp.company}</p>
-                  </div>
-                </div>
-                <p className="text-xs text-slate-500 leading-relaxed mb-3">{exp.description}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {exp.tags.map(tag => (
-                    <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-slate-500 border border-gray-200">{tag}</span>
-                  ))}
-                </div>
+          <div className="grid border-t border-rule md:grid-cols-3">
+            {phases.map((phase) => (
+              <div
+                key={phase.title}
+                className="border-b border-rule-soft py-6 pr-0 last:border-b-0 md:border-b-0 md:border-r md:pr-7 md:last:border-r-0"
+              >
+                <p className="font-mono text-[10.5px] font-medium tracking-[0.12em] text-signal">{phase.years}</p>
+                <h3 className="mb-1.5 mt-2 text-[19px]">{phase.title}</h3>
+                <p className="max-w-[46ch] font-prose text-[15.5px] leading-[1.55] text-ink-mid">{phase.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── EDUCACIÓN ── */}
-      <section className="py-14 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-1 h-5 rounded-full bg-slate-300" />
-            <h2 className="text-base font-bold text-slate-700 uppercase tracking-wide">Formación académica</h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {education.map((edu) => (
-              <div key={edu.institution} className="bg-gray-50 rounded-xl border border-gray-200 p-5 hover:border-gray-300 transition-colors">
-                <p className="text-xs text-slate-400 font-mono mb-0.5">{edu.period}</p>
-                <h3 className="text-sm font-bold text-slate-800 leading-tight mb-0.5">{edu.title}</h3>
-                <p className="text-xs text-slate-500 font-medium mb-3">{edu.institution}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {edu.tags.map(tag => (
-                    <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-white text-slate-500 border border-gray-200">{tag}</span>
-                  ))}
+      {/* ── TRAYECTORIA Y FORMACIÓN ── */}
+      <section className="py-16">
+        <div className="mx-auto grid max-w-[1240px] gap-12 px-5 sm:px-7 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <h2 className="mb-6 font-mono text-[13px] font-medium uppercase tracking-[0.18em]">Trayectoria</h2>
+            <div className="border-t border-rule">
+              {experience.map((job) => (
+                <div key={job.company} className="border-b border-rule-soft py-4">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-soft">{job.period}</p>
+                  <p className="mt-1 text-[15px] font-semibold leading-snug">
+                    {job.role} <span className="text-ink-soft">·</span> {job.company}
+                  </p>
+                  <p className="mt-1 font-mono text-[11px] text-ink-mid">{job.detail}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          <div className="mt-8 text-center">
-            <Link href="/proyectos" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-6 rounded-lg transition-colors text-sm">
-              Ver proyectos completos
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
+          <div>
+            <h2 className="mb-6 font-mono text-[13px] font-medium uppercase tracking-[0.18em]">Formación</h2>
+            <div className="border-t border-rule">
+              {education.map((item) => (
+                <div key={item.title} className="border-b border-rule-soft py-4">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-soft">{item.period}</p>
+                  <p className="mt-1 text-[15px] font-semibold leading-snug">{item.title}</p>
+                  <p className="mt-1 font-mono text-[11px] text-ink-mid">{item.place}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
-
     </main>
   );
 }

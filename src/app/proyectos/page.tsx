@@ -1,198 +1,371 @@
 'use client';
-import { useState } from 'react';
-import Link from 'next/link';
-import ProjectCard from './ProjectCard';
-import ProjectModal, { ProjectData } from './ProjectModal';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import MediaModal from './MediaModal';
+import WorkTile from './WorkTile';
+import { featured, others, type FeaturedProject, type OtherProject, type Spec } from './projects';
 
-const projectsData: ProjectData[] = [
-  {
-    title: 'Liftplay',
-    videoSrc: '/PortofolioIksvaku/lifplay.mp4',
-    thumbnailSrc: '/PortofolioIksvaku/reactprojects.jpg',
-    description: 'Aplicación moderna para la gestión de ascensores. Mantenimiento y control con interfaz intuitiva y tecnología de vanguardia. Conexiones a APIs y un sistema gRPC Streaming.',
-    year: '2024',
-    category: 'NextJS',
-    tags: ['NextJS', 'Flowbite', 'gRPC', 'DriverJS'],
-    accentColor: '#22c55e',
-  },
-  {
-    title: 'Jona Nutrición',
-    videoSrc: '/PortofolioIksvaku/jonanutricion.mp4',
-    thumbnailSrc: '/PortofolioIksvaku/reactprojects.jpg',
-    description: 'Plataforma de consultas nutricionales online. Acceso al portal personal para gestionar citas sin contraseñas mediante enlace mágico. Backend en Supabase con citas en tiempo real.',
-    year: '2024',
-    category: 'NextJS',
-    tags: ['NextJS', 'Supabase', 'Tailwind CSS', 'Magic Link'],
-    accentColor: '#22c55e',
-    liveUrl: 'https://jonanutricion.com',
-  },
-  {
-    title: 'Sandscripter',
-    videoSrc: '/PortofolioIksvaku/sandscripter.mp4',
-    thumbnailSrc: '/PortofolioIksvaku/reactprojects.jpg',
-    description: 'Editor de código colaborativo en tiempo real. Sistema de versionado e integración con APIs de IA para asistencia en programación.',
-    year: '2024',
-    category: 'NextJS',
-    tags: ['NextJS', 'AI', 'API', 'Open Source'],
-    accentColor: '#22c55e',
-    githubUrl: 'https://github.com/dawalberto/sandscripters-ai',
-  },
-  {
-    title: 'VT-TRAINING',
-    videoSrc: '/PortofolioIksvaku/vttraining.mp4',
-    thumbnailSrc: '/PortofolioIksvaku/wordpress.jpg',
-    description: 'Web corporativa para empresa de formación en el sector del transporte. Diseño moderno y responsive con CMS personalizado.',
-    year: '2023',
-    category: 'WordPress',
-    tags: ['WordPress', 'Diseño', 'SEO', 'Responsive'],
-    accentColor: '#3b82f6',
-    liveUrl: 'https://vt-training.com/',
-  },
-  {
-    title: 'Marbac',
-    videoSrc: '/PortofolioIksvaku/marbac.mp4',
-    thumbnailSrc: '/PortofolioIksvaku/wordpress.jpg',
-    description: 'Sitio web para empresa de mármoles y acabados de construcción. Catálogo de productos, galería de proyectos y contacto optimizado.',
-    year: '2023',
-    category: 'WordPress',
-    tags: ['WordPress', 'Diseño', 'SEO', 'Responsive'],
-    accentColor: '#3b82f6',
-    liveUrl: 'https://marbac.es/',
-  },
-  {
-    title: 'Blast Heroes',
-    videoSrc: '/PortofolioIksvaku/blastheroes.mp4',
-    thumbnailSrc: '/PortofolioIksvaku/playcanvas.jpg',
-    description: 'Juego web 3D en PlayCanvas. Combate dinámico con estrategia en tiempo real, optimizado para navegadores con WebGL.',
-    year: '2023',
-    category: 'PlayCanvas',
-    tags: ['PlayCanvas', '3D', 'WebGL', 'Game Dev'],
-    accentColor: '#f97316',
-  },
-  {
-    title: 'My Life',
-    videoSrc: '/PortofolioIksvaku/projectLife.mp4',
-    thumbnailSrc: '/PortofolioIksvaku/playcanvas.jpg',
-    description: 'Simulador de vida para Snapchat. Las decisiones del usuario afectan el desarrollo del personaje a lo largo del juego.',
-    year: '2023',
-    category: 'PlayCanvas',
-    tags: ['PlayCanvas', 'Snapchat', 'Node.js', 'IDLE Game'],
-    accentColor: '#f97316',
-  },
-  {
-    title: 'Interview Dualist',
-    videoSrc: '/PortofolioIksvaku/interviewDualist.mp4',
-    thumbnailSrc: '',
-    description: 'Juego 2D de Game Jam. El jugador responde preguntas de entrevista mientras controla un personaje en un entorno de plataformas.',
-    year: '2023',
-    category: 'Unity',
-    tags: ['Unity', 'C#', 'Game Jam', '2D'],
-    accentColor: '#a855f7',
-    itchUrl: 'https://iksvaku.itch.io/interview-dualist',
-  },
-];
+const BASE = '/PortofolioIksvaku';
 
-const categories = [
-  { name: 'NextJS',     color: '#22c55e' },
-  { name: 'WordPress',  color: '#3b82f6' },
-  { name: 'PlayCanvas', color: '#f97316' },
-  { name: 'Unity',      color: '#a855f7' },
-];
+/** Renderiza **negrita** sin recurrir a HTML crudo */
+function RichText({ text }: { text: string }) {
+  return (
+    <>
+      {text.split('**').map((chunk, i) =>
+        i % 2 === 1 ? (
+          <strong key={i} className="font-semibold text-ink">
+            {chunk}
+          </strong>
+        ) : (
+          chunk
+        ),
+      )}
+    </>
+  );
+}
 
-export default function Proyectos() {
-  const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+function Lamp({ label, live }: { label: string; live: boolean }) {
+  return (
+    <span
+      className={`inline-flex items-center gap-2 font-mono text-[10.5px] font-medium uppercase tracking-[0.13em] ${
+        live ? 'text-live' : 'text-ink-soft'
+      }`}
+    >
+      <span
+        aria-hidden
+        className={`h-[7px] w-[7px] shrink-0 rounded-full ${live ? 'bg-live-lamp' : 'bg-ink-soft opacity-60'}`}
+      />
+      {label}
+    </span>
+  );
+}
 
-  const byCategory = (cat: string) => projectsData.filter(p => p.category === cat);
+function SpecValue({ spec }: { spec: Spec }) {
+  if (spec.pending) {
+    return <span className="border-b border-dashed border-signal font-semibold text-signal">{spec.value}</span>;
+  }
+  return (
+    <>
+      {spec.value.split('\n').map((line, i) => (
+        <span key={i} className="block">
+          {line}
+        </span>
+      ))}
+    </>
+  );
+}
+
+/** Placa con el logo de la empresa: el PNG es opaco, así que va enmarcado */
+function CompanyPlate() {
+  return (
+    <span className="mr-2 inline-block h-[19px] w-[19px] shrink-0 overflow-hidden border border-rule bg-white align-[-5px]">
+      <Image src={`${BASE}/liftel-logo.png`} alt="" width={19} height={19} className="h-full w-full object-contain" />
+    </span>
+  );
+}
+
+/** Índice lateral: pegajoso en escritorio, tira horizontal en móvil */
+function ProjectIndex({ active }: { active: string }) {
+  return (
+    <nav
+      aria-label="Índice de proyectos"
+      className="sticky top-[58px] z-20 -mx-5 min-w-0 max-w-full self-start border-b border-rule bg-ground px-5 py-2 sm:-mx-7 sm:px-7 lg:top-20 lg:mx-0 lg:max-w-none lg:border-0 lg:bg-transparent lg:px-0 lg:py-0"
+    >
+      <p className="mb-3 hidden font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-soft lg:block">Índice</p>
+      <ul className="-mx-1 flex min-w-0 gap-1 overflow-x-auto pb-1 lg:mx-0 lg:flex-col lg:gap-0 lg:overflow-visible lg:pb-0">
+        {featured.map((project) => {
+          const current = active === project.slug;
+          return (
+            <li key={project.slug} className="shrink-0 lg:shrink lg:border-b lg:border-rule-soft">
+              <a
+                href={`#${project.slug}`}
+                aria-current={current ? 'true' : undefined}
+                className={`flex items-center gap-2.5 whitespace-nowrap px-1 py-2.5 text-[12.5px] font-medium transition-colors lg:whitespace-normal ${
+                  current ? 'text-ink' : 'text-ink-soft hover:text-ink-mid'
+                }`}
+              >
+                <span
+                  aria-hidden
+                  className={`h-[6px] w-[6px] shrink-0 rounded-full transition-colors ${
+                    current ? 'bg-signal-lamp' : 'bg-rule'
+                  }`}
+                />
+                {project.title}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+}
+
+function Record({ project }: { project: FeaturedProject }) {
+  const portraitVideo = project.video && project.videoOrientation === 'portrait';
+  const landscapeVideo = project.video && project.videoOrientation === 'landscape';
 
   return (
-    <main className="min-h-screen bg-gray-50">
-
-      {/* Header */}
-      <div className="py-10 bg-white border-b border-gray-100">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-black text-slate-900 tracking-tight">Mis proyectos</h1>
-        </div>
+    <article
+      id={project.slug}
+      className="scroll-mt-32 grid min-w-0 gap-8 border-t border-rule py-10 md:scroll-mt-24 md:grid-cols-[180px_1fr] md:gap-11 md:py-11"
+    >
+      {/* Rail de datos duros. En móvil va después del cuerpo: primero el nombre, luego la ficha */}
+      <div className="order-2 min-w-0 md:order-1">
+        <dl className="grid grid-cols-2 gap-x-6 gap-y-4 md:flex md:flex-col md:gap-4">
+          {project.specs.map((spec) => (
+            <div key={spec.label}>
+              <dt className="mb-1 font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">{spec.label}</dt>
+              <dd className="text-[13.5px] font-medium leading-snug">
+                <SpecValue spec={spec} />
+              </dd>
+            </div>
+          ))}
+          <div>
+            <dt className="mb-1 font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">Stack</dt>
+            <dd className="font-mono text-[11.5px] leading-[1.85] text-ink-mid">
+              {project.stack.map((tech) => (
+                <span key={tech} className="block">
+                  {tech}
+                </span>
+              ))}
+            </dd>
+          </div>
+          <div>
+            <dt className="mb-1 font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">Estado</dt>
+            <dd>
+              <Lamp label={project.status} live={project.live} />
+            </dd>
+          </div>
+        </dl>
       </div>
 
-      {/* Content */}
-      <div className="py-10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      {/* Cuerpo */}
+      <div className="order-1 min-w-0 md:order-2">
+        <h3 className="mb-1 text-[clamp(26px,3.6vw,38px)] leading-[1.02]">{project.title}</h3>
+        <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
+          {project.withLogo && <CompanyPlate />}
+          {project.company}
+        </p>
 
-          {categories.map(cat => {
-            const projects = byCategory(cat.name);
-            if (!projects.length) return null;
-
-            return (
-              <section key={cat.name}>
-
-                {/* Category label */}
-                <div className="flex items-center gap-3 mb-10">
-                  <div className="w-1 h-6 rounded-full flex-shrink-0" style={{ background: cat.color }} />
-                  <h2 className="text-xl font-bold text-slate-800">{cat.name}</h2>
-                  <span className="text-slate-300 text-sm">{projects.length} proyecto{projects.length > 1 ? 's' : ''}</span>
-                </div>
-
-                {/* Cards grid */}
-                <div
-                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-                  style={{ gap: '4rem 3rem', paddingTop: '1rem', paddingBottom: '3rem' }}
-                >
-                  {projects.map(project => (
-                    <div key={project.title} className="flex flex-col items-start gap-3">
-                      <ProjectCard
-                        videoSrc={project.videoSrc}
-                        posterSrc={project.thumbnailSrc || undefined}
-                        title={project.title}
-                        accentColor={project.accentColor}
-                        onClick={() => { setSelectedProject(project); setIsModalOpen(true); }}
-                      />
-                      {/* Tags strip below card */}
-                      <div className="flex flex-wrap gap-1 pl-1">
-                        {project.tags.slice(0, 3).map(tag => (
-                          <span
-                            key={tag}
-                            className="px-1.5 py-0.5 rounded text-slate-400 bg-slate-100 border border-slate-200"
-                            style={{ fontSize: 10 }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="border-t border-gray-100" />
-              </section>
-            );
-          })}
-
+        <div className="flex max-w-[62ch] flex-col gap-3.5">
+          {project.paragraphs.map((text, i) => (
+            <p key={i} className="font-prose text-[17.5px] leading-[1.62] text-ink-mid">
+              <RichText text={text} />
+            </p>
+          ))}
         </div>
-      </div>
 
-      {/* CTA */}
-      <div className="bg-white border-t border-gray-100 py-10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <Link href="/aficiones" className="inline-flex items-center justify-center px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-slate-700 text-sm font-medium rounded-lg transition-colors">
-              Ver mis aficiones
-            </Link>
-            <Link href="/contacto" className="inline-flex items-center justify-center px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors">
-              Contactar
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" />
-              </svg>
-            </Link>
+        {/* Capturas y, si el vídeo es vertical, el vídeo como una pantalla más */}
+        {(project.shots || portraitVideo) && (
+          <div className="mt-7 grid grid-cols-2 items-start gap-3.5 sm:flex sm:flex-wrap">
+            {project.shots?.map((shot) => (
+              <figure key={shot.src} className="border border-rule bg-panel px-2 pt-2">
+                <Image
+                  src={shot.src}
+                  alt={shot.caption}
+                  width={150}
+                  height={326}
+                  className="block h-auto w-full sm:w-[150px]"
+                />
+                <figcaption className="px-0.5 pb-2.5 pt-2 text-center font-mono text-[9px] uppercase tracking-[0.1em] text-ink-soft">
+                  {shot.caption}
+                </figcaption>
+              </figure>
+            ))}
+            {portraitVideo && (
+              <figure className="border border-rule bg-panel px-2 pt-2">
+                <video
+                  src={project.video}
+                  className="block h-auto w-full bg-ink sm:w-[150px]"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  aria-label={`${project.title} en funcionamiento`}
+                />
+                <figcaption className="px-0.5 pb-2.5 pt-2 text-center font-mono text-[9px] uppercase tracking-[0.1em] text-signal">
+                  En funcionamiento
+                </figcaption>
+              </figure>
+            )}
+          </div>
+        )}
+
+        {/* Vídeo horizontal: bloque a todo el ancho, con póster y controles */}
+        {landscapeVideo && (
+          <figure className="mt-7 border border-rule bg-panel p-2">
+            <video
+              src={project.video}
+              poster={project.videoPoster}
+              className="block aspect-video w-full bg-ink"
+              controls
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+            <figcaption className="pb-1 pt-2.5 text-center font-mono text-[9px] uppercase tracking-[0.1em] text-ink-soft">
+              {project.title} en funcionamiento
+            </figcaption>
+          </figure>
+        )}
+
+        {project.turningPoint && (
+          <div className="mt-7 grid items-center gap-4 border border-rule bg-panel px-6 py-5 sm:grid-cols-[1fr_auto_1fr]">
+            <div>
+              <span className="mb-1.5 block font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">
+                {project.turningPoint.beforeLabel}
+              </span>
+              <p className="text-[15px] font-semibold leading-snug">{project.turningPoint.before}</p>
+            </div>
+            <div aria-hidden className="text-xl leading-none text-signal-lamp max-sm:rotate-90">
+              →
+            </div>
+            <div>
+              <span className="mb-1.5 block font-mono text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">
+                {project.turningPoint.afterLabel}
+              </span>
+              <p className="text-[15px] font-semibold leading-snug">{project.turningPoint.after}</p>
+            </div>
+          </div>
+        )}
+
+        {project.quote && (
+          <blockquote className="mt-7 border-l-2 border-signal-lamp pl-5">
+            <p className="font-prose text-[19px] italic leading-[1.5] text-ink">“{project.quote.text}”</p>
+            <cite className="mt-2 block font-mono text-[10px] uppercase not-italic tracking-[0.11em] text-ink-soft">
+              {project.quote.source}
+            </cite>
+          </blockquote>
+        )}
+
+        {project.links && (
+          <div className="mt-6 flex flex-wrap gap-5">
+            {project.links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-b border-signal-lamp pb-0.5 font-mono text-[11.5px] uppercase tracking-[0.08em] text-ink transition-colors hover:text-signal"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </article>
+  );
+}
+
+export default function Proyectos() {
+  const [playing, setPlaying] = useState<{ title: string; video: string } | null>(null);
+  const [active, setActive] = useState(featured[0].slug);
+
+  // Marca en el índice el proyecto que se está leyendo
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const first = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+        if (first) setActive(first.target.id);
+      },
+      { rootMargin: '-15% 0px -65% 0px' },
+    );
+
+    featured.forEach((project) => {
+      const node = document.getElementById(project.slug);
+      if (node) observer.observe(node);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <main className="bg-ground">
+      {/* Cabecera: compacta, y la columna derecha lleva información en vez de aire */}
+      <div className="border-b border-rule bg-panel">
+        <div className="mx-auto flex max-w-[1240px] flex-col gap-6 px-5 sm:px-7 py-8 md:flex-row md:items-end md:justify-between md:gap-14">
+          <div>
+            <p className="mb-2 font-mono text-[10.5px] font-medium uppercase tracking-[0.16em] text-ink-soft">
+              Frontend · Web y móvil
+            </p>
+            <h1 className="text-[clamp(30px,4vw,42px)] leading-[1]">Trabajo</h1>
+          </div>
+
+          <div className="md:max-w-[46ch] md:text-right">
+            <p className="font-prose text-[16px] leading-relaxed text-ink-mid">
+              Interfaces que la gente usa para abrir su portal, configurar las pantallas de un ascensor o pedir cita
+              con su nutricionista.
+            </p>
+            <dl className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[10.5px] uppercase tracking-[0.11em] text-ink-soft md:justify-end">
+              <div className="flex gap-1.5">
+                <dt className="sr-only">En producción</dt>
+                <dd className="text-ink">{featured.length}</dd>
+                <dd>en producción</dd>
+              </div>
+              <div className="flex gap-1.5">
+                <dt className="sr-only">Trabajos anteriores</dt>
+                <dd className="text-ink">{others.length}</dd>
+                <dd>anteriores</dd>
+              </div>
+              <div className="flex gap-1.5">
+                <dt className="sr-only">Periodo</dt>
+                <dd>2021 — 2026</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </div>
 
-      <ProjectModal
-        isOpen={isModalOpen}
-        onClose={() => { setIsModalOpen(false); setSelectedProject(null); }}
-        projectData={selectedProject}
-      />
+      {/* Destacados */}
+      <section className="border-b border-rule pb-16 pt-12">
+        <div className="mx-auto max-w-[1240px] px-5 sm:px-7">
+          <h2 className="mb-8 font-mono text-[13px] font-medium uppercase tracking-[0.18em]">Trabajo destacado</h2>
+
+          <div className="grid min-w-0 gap-10 lg:grid-cols-[170px_1fr] lg:gap-14">
+            <ProjectIndex active={active} />
+            <div className="min-w-0">
+              {featured.map((project) => (
+                <Record key={project.slug} project={project} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Otros trabajos: hoja de contactos. Casi todo está retirado,
+          así que el vídeo es la única prueba que queda del diseño */}
+      <section className="py-16">
+        <div className="mx-auto max-w-[1240px] px-5 sm:px-7">
+          <div className="mb-3 flex flex-wrap items-baseline justify-between gap-5">
+            <h2 className="font-mono text-[13px] font-medium uppercase tracking-[0.18em]">Otros trabajos</h2>
+            <span className="font-mono text-[11px] tracking-[0.1em] text-ink-soft">Por empresa · 2021 — 2024</span>
+          </div>
+          <p className="mb-9 max-w-[62ch] font-prose text-[16px] leading-relaxed text-ink-mid">
+            Casi todo esto ya no está en pie: los dominios se dieron de baja y los juegos se retiraron de sus
+            plataformas. Lo grabé mientras funcionaba, así que el vídeo es lo único que queda. Pasa por encima para
+            verlo en marcha.
+          </p>
+
+          <div className="grid gap-x-6 gap-y-9 border-t border-rule pt-9 sm:grid-cols-2 lg:grid-cols-3">
+            {others.map((item) => (
+              <WorkTile
+                key={`${item.company}-${item.title}`}
+                item={item}
+                onOpen={(target: OtherProject) =>
+                  target.video && setPlaying({ title: target.title, video: target.video })
+                }
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {playing && (
+        <MediaModal title={playing.title} videoSrc={playing.video} onClose={() => setPlaying(null)} />
+      )}
     </main>
   );
 }

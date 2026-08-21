@@ -50,6 +50,10 @@ jobs:
           fi
       - name: Build with Next.js
         run: npm run build
+        env:
+          # Clave pública de Web3Forms: sólo sirve para enviar el formulario.
+          # Se define en Settings > Secrets and variables > Actions.
+          NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.WEB3FORMS_KEY }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -1,15 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo, Newsreader, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Titulares e interfaz: el eje de anchura da el aire de placa grabada
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin"],
+  axes: ["wdth"],
+});
+
+// Prosa de los casos de proyecto
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Datos duros: años, stack, métricas
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
 });
 
@@ -24,14 +34,16 @@ export const metadata: Metadata = {
     template: "%s | Portfolio de Iksvaku",
   },
   description:
-    "Portfolio de Iksvaku Claure Manchón: proyectos y habilidades en desarrollo frontend con Next.js, Tailwind CSS y Salesforce.",
+    "Iksvaku Claure Manchón, desarrollador frontend en Alicante. Interfaces web y móviles en producción con React, Next.js y React Native.",
   keywords: [
     "portfolio iksvaku",
     "Iksvaku Claure Manchón",
     "desarrollador frontend",
+    "frontend Alicante",
+    "React",
     "Next.js",
-    "Tailwind CSS",
-    "Salesforce",
+    "React Native",
+    "TypeScript",
   ],
   authors: [{ name: "Iksvaku Claure Manchón" }],
   alternates: {
@@ -42,7 +54,7 @@ export const metadata: Metadata = {
     locale: "es_ES",
     title: "Portfolio de Iksvaku",
     description:
-      "Portfolio de Iksvaku Claure Manchón: proyectos y habilidades en desarrollo frontend con Next.js, Tailwind CSS y Salesforce.",
+      "Iksvaku Claure Manchón, desarrollador frontend en Alicante. Interfaces web y móviles en producción con React, Next.js y React Native.",
     url: "/PortofolioIksvaku/",
     siteName: "Portfolio de Iksvaku",
   },
@@ -50,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Portfolio de Iksvaku",
     description:
-      "Portfolio de Iksvaku Claure Manchón: proyectos y habilidades en desarrollo frontend con Next.js, Tailwind CSS y Salesforce.",
+      "Iksvaku Claure Manchón, desarrollador frontend en Alicante. Interfaces web y móviles en producción con React, Next.js y React Native.",
   },
   robots: {
     index: true,
@@ -66,12 +78,11 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${archivo.variable} ${newsreader.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <Navbar />
-        <div className="pt-14">
-          {children}
-        </div>
+        <div className="pt-[58px]">{children}</div>
+        <Footer />
       </body>
     </html>
   );

@@ -1,118 +1,68 @@
 @import "tailwindcss";
 
+/* Paleta: aluminio frío + tinta, con un único acento ámbar de señal.
+   Sin tema oscuro: el sitio se compromete con un solo mundo visual. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Superficies */
+  --ground: #e9ebed;
+  --panel: #f7f8f9;
+  --panel-sunk: #dfe3e6;
+
+  /* Texto, de más a menos contraste */
+  --ink: #14171b;
+  --ink-mid: #4a525b;
+  --ink-soft: #79838d;
+
+  /* Reglas y separadores */
+  --rule: #c7ccd1;
+  --rule-soft: #d9dde1;
+
+  /* Acento: ámbar de señal. Sólo para lo que de verdad señala algo */
+  --signal: #9a5804;
+  --signal-lamp: #c87a0a;
+
+  /* Estado "en producción" */
+  --live: #256b45;
+  --live-lamp: #2f8a57;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-ground: var(--ground);
+  --color-panel: var(--panel);
+  --color-panel-sunk: var(--panel-sunk);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-ink: var(--ink);
+  --color-ink-mid: var(--ink-mid);
+  --color-ink-soft: var(--ink-soft);
+
+  --color-rule: var(--rule);
+  --color-rule-soft: var(--rule-soft);
+
+  --color-signal: var(--signal);
+  --color-signal-lamp: var(--signal-lamp);
+
+  --color-live: var(--live);
+  --color-live-lamp: var(--live-lamp);
+
+  /* Tres roles tipográficos: titulares, prosa y datos */
+  --font-display: var(--font-archivo);
+  --font-sans: var(--font-archivo);
+  --font-prose: var(--font-newsreader);
+  --font-mono: var(--font-jetbrains);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Animaciones personalizadas */
-@keyframes float-particle {
-  0%, 100% {
-    transform: translateY(0) translateX(0);
-    opacity: 0.5;
-  }
-  25% {
-    transform: translateY(-20px) translateX(10px);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(-40px) translateX(-10px);
-    opacity: 0.5;
-  }
-  75% {
-    transform: translateY(-20px) translateX(-20px);
-    opacity: 0.3;
-  }
-}
-
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-}
-
-@keyframes blob {
-  0% {
-    transform: scale(1) translate(0px, 0px);
-  }
-  33% {
-    transform: scale(1.1) translate(30px, -50px);
-  }
-  66% {
-    transform: scale(0.9) translate(-20px, 20px);
-  }
-  100% {
-    transform: scale(1) translate(0px, 0px);
-  }
-}
-
-.animate-blob {
-  animation: blob 15s infinite alternate;
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
-.animation-delay-1000 {
-  animation-delay: 1s;
-}
-
-.animate-float-particle {
-  animation: float-particle 15s infinite;
-}
-
-/* Transiciones suaves para elementos interactivos */
-.transition-transform {
-  transition: transform 0.3s ease-in-out;
-}
-
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1);
-}
-
-.clip-diagonal {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 65% 100%);
+/* Los titulares usan el eje de anchura variable de Archivo */
+h1,
+h2,
+h3 {
+  font-variation-settings: "wdth" 108, "wght" 800;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }

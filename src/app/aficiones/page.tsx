@@ -151,12 +151,12 @@ export default function Aficiones() {
       {/* Sticky tab bar */}
       <div className="bg-white border-b border-gray-100 sticky top-14 z-10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-1">
+          <div className="-mx-4 flex gap-1 overflow-x-auto px-4 sm:mx-0 sm:px-0">
             {tabs.map((tab, i) => (
               <button
                 key={tab.label}
                 onClick={() => handleTabClick(i)}
-                className="flex items-center gap-2 px-4 py-3.5 text-sm font-medium transition-colors relative"
+                className="relative flex shrink-0 items-center gap-2 px-4 py-3.5 text-sm font-medium transition-colors"
                 style={{ color: activeTab === i ? '#2563eb' : '#94a3b8' }}
               >
                 <span style={{ color: activeTab === i ? '#2563eb' : '#cbd5e1' }}>{tab.icon}</span>

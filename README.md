@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Iksvaku Claure Manchón
 
-## Getting Started
+Portfolio personal de un desarrollador frontend. Es el sitio donde enseño mi trabajo, pero
+también es el trabajo en sí: el código es público a propósito, porque forma parte de lo que
+estoy presentando.
 
-First, run the development server:
+**En producción:** [isvakuclaure.github.io/PortofolioIksvaku](https://isvakuclaure.github.io/PortofolioIksvaku/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Stack
+
+| | |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Lenguaje | TypeScript |
+| Estilos | Tailwind CSS 4 |
+| Despliegue | GitHub Pages vía GitHub Actions |
+
+## Decisiones
+
+**Export estático.** El sitio se sirve desde GitHub Pages, así que se compila con
+`output: 'export'`. No hay servidor, ni API routes, ni renderizado en petición. Todo lo que
+necesita interactividad es un componente de cliente.
+
+**`basePath` y rutas de assets.** GitHub Pages sirve el sitio en un subdirectorio
+(`/PortofolioIksvaku`), no en la raíz. Eso obliga a declarar `basePath` y `assetPrefix` en
+[`next.config.js`](next.config.js), y a que las rutas de imágenes y vídeos incluyan el prefijo.
+Si algún día el sitio se mueve a un dominio propio, esto es lo primero que hay que cambiar.
+
+**Imágenes sin optimizar.** `next/image` necesita un servidor para optimizar al vuelo, y aquí
+no hay ninguno — de ahí `images.unoptimized`. Los assets se optimizan a mano antes de
+commitearlos.
+
+## Estructura
+
+```
+src/
+├── app/
+│   ├── layout.tsx        # layout raíz, fuentes y metadatos SEO
+│   ├── page.tsx          # inicio
+│   ├── proyectos/        # trabajo, con fichas en modal
+│   ├── aficiones/        # fuera del trabajo
+│   ├── contacto/
+│   ├── sitemap.ts        # sitemap y robots generados en build
+│   └── robots.ts
+└── components/
+    └── Navbar.tsx
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Desarrollo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Compilar el sitio estático en `out/`:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Despliegue
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Cada push a `main` lanza [`deploy.yml`](.github/workflows/deploy.yml), que compila y sube
+`out/` a GitHub Pages. No hay paso manual. El repo tiene otras ramas (`master`, `gh-pages`,
+`production`) que no publican.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Licencia
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+El código es libre de mirar y de aprender de él. Los textos, las imágenes y los vídeos de los
+proyectos no lo son: son míos o de las empresas para las que trabajé.
