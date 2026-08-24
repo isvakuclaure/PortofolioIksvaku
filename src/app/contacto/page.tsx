@@ -54,8 +54,9 @@ export default function Contacto() {
             </div>
 
             <p className="mt-7 max-w-[46ch] font-prose text-[17.5px] leading-[1.62] text-ink-mid">
-              Busco un equipo donde el frontend se trate como producto y no como maquetación. Si tienes algo así,
-              escríbeme — <span className="font-semibold text-ink">contesto a todo</span>.
+              Desarrollo interfaces web y móviles para producto en producción: desde la maquetación hasta las
+              decisiones de interfaz, trabajando junto a los equipos de producto y backend. Cuéntame qué necesitas y{' '}
+              <span className="font-semibold text-ink">vemos si encajo</span>.
             </p>
 
             <dl className="mt-8 border-t border-rule">

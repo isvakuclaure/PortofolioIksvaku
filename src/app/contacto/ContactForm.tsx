@@ -55,7 +55,7 @@ export default function ContactForm() {
           Mensaje enviado
         </p>
         <p className="mt-3 max-w-[46ch] font-prose text-[17px] leading-relaxed text-ink-mid">
-          Gracias por escribir. Te contesto en cuanto lo lea — normalmente el mismo día.
+          Mensaje recibido. Te respondo en cuanto lo lea, normalmente el mismo día.
         </p>
         <button
           onClick={() => setStatus('idle')}

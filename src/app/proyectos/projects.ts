@@ -148,8 +148,9 @@ export const featured: FeaturedProject[] = [
     status: 'jonanutricion.com',
     live: true,
     paragraphs: [
-      'Consultas de nutrición online. La clienta tenía un problema concreto: sus pacientes olvidaban la contraseña y le escribían por WhatsApp para pedir cita. **Quité las contraseñas.** Se accede por enlace mágico al correo, y las citas se sincronizan en tiempo real con Supabase.',
-      'Es el único proyecto donde tomé todas las decisiones: modelo de datos, autenticación, diseño y despliegue. Sigue vivo y funcionando sin que yo lo toque.',
+      'Plataforma de consultas de nutrición online para un nutricionista, con portal de paciente y gestión de citas.',
+      'Se maneja información de salud, así que la decisión de fondo fue de seguridad: **no almacenar contraseñas**. El acceso va por enlace mágico al correo, de modo que la base de datos nunca guarda credenciales. Menos superficie de ataque y menos exposición legal ante una filtración.',
+      'Es el único proyecto donde tomé **todas** las decisiones: modelo de datos, autenticación, diseño y despliegue. Las citas se sincronizan en tiempo real con Supabase. Sigue en producción.',
     ],
     video: `${BASE}/jonanutricion.mp4`,
     videoOrientation: 'landscape',

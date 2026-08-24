@@ -72,7 +72,7 @@ function ProjectIndex({ active }: { active: string }) {
       className="sticky top-[58px] z-20 -mx-5 min-w-0 max-w-full self-start border-b border-rule bg-ground px-5 py-2 sm:-mx-7 sm:px-7 lg:top-20 lg:mx-0 lg:max-w-none lg:border-0 lg:bg-transparent lg:px-0 lg:py-0"
     >
       <h2 className="mb-5 hidden font-mono text-[13px] font-medium uppercase tracking-[0.18em] text-ink lg:block">
-        Trabajo destacado
+        Proyectos destacados
       </h2>
       <ul className="-mx-1 flex min-w-0 gap-1 overflow-x-auto pb-1 lg:mx-0 lg:flex-col lg:gap-0 lg:overflow-visible lg:pb-0">
         {featured.map((project) => {
@@ -293,7 +293,7 @@ export default function Proyectos() {
             <p className="mb-2 font-mono text-[10.5px] font-medium uppercase tracking-[0.16em] text-ink-soft">
               Frontend · Web y móvil
             </p>
-            <h1 className="text-[clamp(30px,4vw,42px)] leading-[1]">Trabajo</h1>
+            <h1 className="text-[clamp(30px,4vw,42px)] leading-[1]">Proyectos</h1>
           </div>
 
           <div className="md:max-w-[46ch] md:text-right">
@@ -325,7 +325,7 @@ export default function Proyectos() {
       <section className="border-b border-rule pb-16 pt-12">
         <div className="mx-auto max-w-[1240px] px-5 sm:px-7">
           <h2 className="mb-6 font-mono text-[13px] font-medium uppercase tracking-[0.18em] lg:hidden">
-            Trabajo destacado
+            Proyectos destacados
           </h2>
 
           <div className="grid min-w-0 gap-10 lg:grid-cols-[170px_1fr] lg:gap-14">
@@ -344,7 +344,7 @@ export default function Proyectos() {
       <section className="py-16">
         <div className="mx-auto max-w-[1240px] px-5 sm:px-7">
           <div className="mb-3 flex flex-wrap items-baseline justify-between gap-5">
-            <h2 className="font-mono text-[13px] font-medium uppercase tracking-[0.18em]">Otros trabajos</h2>
+            <h2 className="font-mono text-[13px] font-medium uppercase tracking-[0.18em]">Otros proyectos</h2>
             <span className="font-mono text-[11px] tracking-[0.1em] text-ink-soft">Por empresa · 2021 — 2024</span>
           </div>
           <p className="mb-9 max-w-[62ch] font-prose text-[16px] leading-relaxed text-ink-mid">

@@ -8,26 +8,56 @@ const phases = [
   {
     years: '2021 — 2022',
     title: 'Juegos',
-    text: 'UI e integración de modelos 2D/3D en PlayCanvas, para juegos jugados por miles de personas a la vez. Aprendí a hacer interfaces cuando cada milisegundo cuenta.',
+    text: 'Integración de UI y de modelos 2D/3D en PlayCanvas para juegos con miles de usuarios simultáneos. Interfaces sujetas a límites estrictos de rendimiento en navegador.',
   },
   {
     years: '2023 — 2024',
     title: 'Producto',
-    text: 'Frontend y APIs en equipos internacionales. React, Node y pipelines de integración continua. Aprendí a trabajar sobre código que no escribí yo.',
+    text: 'Frontend y servicios en equipos internacionales: React, Node e integración continua con Jenkins. Desarrollo sobre bases de código existentes, en metodología Scrum.',
   },
   {
     years: '2024 — hoy',
     title: 'Móvil e IoT',
-    text: 'Apps que hablan con hardware real en edificios habitados. Aprendí que cuando la interfaz falla, alguien se queda en la calle.',
+    text: 'Aplicaciones móviles y web conectadas a dispositivos IoT instalados en edificios. Interfaces que traducen el estado de un aparato físico en algo que cualquier usuario entiende y puede accionar.',
   },
 ];
 
 const experience = [
-  { period: 'Dic 2024 — hoy', role: 'Desarrollador Frontend', company: 'Liftel', detail: 'React Native, Next.js, gRPC y apoyo en backend con Go' },
-  { period: 'May — Oct 2024', role: 'Administrador de Salesforce', company: 'Multiply College', detail: 'Arquitectura de datos y automatización de procesos' },
-  { period: 'Jun — Ago 2023', role: 'Ingeniero Junior de Software', company: 'Solera, Inc.', detail: 'React y Node en un equipo internacional' },
-  { period: 'Oct — Dic 2022', role: 'Responsable de IT / Programador web', company: 'Krystaline', detail: 'WordPress y material promocional' },
-  { period: 'Sep 2021 — Jul 2022', role: 'Desarrollador Frontend', company: 'GGTech Entertainment', detail: 'UI e integración 2D/3D en PlayCanvas' },
+  {
+    period: 'Dic 2024 — hoy',
+    role: 'Desarrollador Frontend',
+    company: 'Liftel',
+    detail:
+      'Frontend de la app móvil en React Native y de los paneles web en Next.js. Integración de APIs REST y gRPC, definición de contratos de datos junto al equipo de backend y apoyo puntual en servicios Go.',
+  },
+  {
+    period: 'May — Oct 2024',
+    role: 'Administrador de Salesforce',
+    company: 'Multiply College',
+    detail:
+      'Montaje de la organización desde cero: arquitectura de datos relacionales, objetos y relaciones a medida, flujos de automatización, reglas de validación y escalado, informes y cuadros de mando.',
+  },
+  {
+    period: 'Jun — Ago 2023',
+    role: 'Ingeniero Junior de Software',
+    company: 'Solera, Inc.',
+    detail:
+      'Interfaces con React.js y colaboración en servicios Node.js. Integración continua y testing automatizado con Jenkins, en un equipo multicultural donde el trabajo diario era en inglés.',
+  },
+  {
+    period: 'Oct — Dic 2022',
+    role: 'Responsable de IT / Programador web',
+    company: 'Krystaline',
+    detail:
+      'Responsable del sitio corporativo en WordPress y del soporte informático de la oficina: cuentas de usuario, correo empresarial, campañas y material gráfico con Photoshop y Premiere.',
+  },
+  {
+    period: 'Sep 2021 — Jul 2022',
+    role: 'Desarrollador Frontend',
+    company: 'GGTech Entertainment',
+    detail:
+      'Integración de UI y de modelos 2D/3D en PlayCanvas. Enlace entre programación, arte, animación y VFX, y desarrollo de herramientas internas para que perfiles no técnicos trabajaran sin programar.',
+  },
 ];
 
 const education = [
@@ -112,7 +142,7 @@ export default function Home() {
                 href="/proyectos"
                 className="border border-ink bg-ink px-5 py-3 text-[13px] font-semibold uppercase tracking-[0.04em] text-ground transition-colors hover:border-ink-mid hover:bg-ink-mid"
               >
-                Ver el trabajo
+                Ver proyectos
               </Link>
               <Link
                 href="/contacto"
